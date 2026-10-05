@@ -1,42 +1,81 @@
-// CampusBridge website interactions
+document.addEventListener("DOMContentLoaded", () => {
 
-const contactForm = document.querySelector(".contact-form");
-const formMessage = document.querySelector(".form-message");
+const searchInput = document.querySelector(".search-box input");
+const filterButtons = document.querySelectorAll(".filter");
+const opportunityCards = document.querySelectorAll(".listing-card");
 
-if (contactForm) {
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+let currentFilter = "all";
 
-        formMessage.textContent =
-            "Thank you! Your message has been received. We'll get back to you soon.";
+function filterOpportunities() {
 
-        contactForm.reset();
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    opportunityCards.forEach(card => {
+
+        const cardText = card.textContent.toLowerCase();
+
+        const categoryElement = card.querySelector(".listing-category");
+
+        const category = categoryElement
+            ? categoryElement.textContent.toLowerCase()
+            : "";
+
+        const matchesSearch = cardText.includes(searchTerm);
+
+        let matchesFilter = true;
+
+        if (currentFilter !== "all") {
+            matchesFilter = category.includes(currentFilter);
+        }
+
+        if (matchesSearch && matchesFilter) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+
     });
 }
 
 
-// Smooth navigation for internal links
+// SEARCH
+if (searchInput) {
+    searchInput.addEventListener("input", filterOpportunities);
+}
 
-document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 
-    link.addEventListener("click", function (event) {
+// CATEGORY FILTERS
+filterButtons.forEach(button => {
 
-        const targetId = this.getAttribute("href");
+    button.addEventListener("click", () => {
 
-        if (targetId === "#") {
-            return;
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const buttonText = button.textContent.toLowerCase();
+
+        if (buttonText.includes("scholarship")) {
+            currentFilter = "scholarship";
+
+        } else if (buttonText.includes("internship")) {
+            currentFilter = "internship";
+
+        } else if (buttonText.includes("competition")) {
+            currentFilter = "competition";
+
+        } else if (buttonText.includes("training")) {
+            currentFilter = "training";
+
+        } else {
+            currentFilter = "all";
         }
 
-        const target = document.querySelector(targetId);
-
-        if (target) {
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
+        filterOpportunities();
     });
+
+}
 
 });
