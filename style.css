@@ -1,680 +1,138 @@
-/* =========================================
-   CAMPUSBRIDGE
-   Main Website Styles
-   ========================================= */
-
-
-/* ---------- Base ---------- */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7fbfc;
-    color: #102a43;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
+    background: #f5f8fc;
+    color: #1f2937;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.container {
-    width: min(1120px, 90%);
-    margin: 0 auto;
-}
-
-
-/* ---------- Typography ---------- */
-
-h1,
-h2,
-h3 {
-    line-height: 1.15;
-}
-
-h1 {
-    font-size: clamp(2.6rem, 7vw, 5rem);
-}
-
-h2 {
-    font-size: clamp(2rem, 5vw, 3.4rem);
-}
-
-h3 {
-    font-size: 1.25rem;
-}
-
-p {
-    color: #526777;
-}
-
-
-/* ---------- Navigation ---------- */
-
-.navbar {
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid #e4edf1;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-container {
-    min-height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #102a43;
-}
-
-.logo-mark {
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    border-radius: 12px;
-    background: #0f9d8a;
+/* Header */
+header {
+    background: #123c69;
     color: white;
-    font-size: 0.85rem;
-    font-weight: 800;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-.nav-links a {
-    color: #526777;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.nav-links a:hover {
-    color: #0f9d8a;
-}
-
-.nav-button {
-    background: #102a43;
-    color: white;
-    padding: 11px 20px;
-    border-radius: 10px;
-    font-weight: 700;
-    transition: 0.2s ease;
-}
-
-.nav-button:hover {
-    background: #0f9d8a;
-}
-
-
-/* ---------- Buttons ---------- */
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 22px;
-    border-radius: 10px;
-    font-weight: 700;
-    border: 2px solid transparent;
-    transition: 0.2s ease;
-}
-
-.btn-primary {
-    background: #0f9d8a;
-    color: white;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background: white;
-    color: #102a43;
-    border-color: #dce7ec;
-}
-
-.btn-secondary:hover {
-    border-color: #0f9d8a;
-}
-
-
-/* ---------- Hero ---------- */
-
-.hero {
-    padding: 100px 0 110px;
-    background:
-        radial-gradient(circle at 85% 30%, rgba(15, 157, 138, 0.14), transparent 28%),
-        linear-gradient(135deg, #f7fbfc, #eef8f7);
-    overflow: hidden;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    gap: 70px;
-}
-
-.eyebrow {
-    display: inline-block;
-    margin-bottom: 18px;
-    color: #0f9d8a;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.13em;
-}
-
-.hero h1 {
-    max-width: 760px;
-    margin-bottom: 25px;
-    color: #102a43;
-}
-
-.hero h1 span,
-.section-heading h2 span,
-.trust-section h2 span {
-    color: #0f9d8a;
-}
-
-.hero-text > p {
-    max-width: 650px;
-    font-size: 1.12rem;
-    margin-bottom: 30px;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.hero-note {
-    margin-top: 22px;
-    color: #526777;
-    font-size: 0.9rem;
-}
-
-.hero-note span {
-    color: #0f9d8a;
-    font-weight: bold;
-}
-
-
-/* ---------- Hero Visual ---------- */
-
-.hero-visual {
-    min-height: 390px;
-    display: grid;
-    place-items: center;
-}
-
-.bridge-card {
-    width: min(390px, 100%);
-    min-height: 330px;
-    position: relative;
-    border-radius: 28px;
-    background: white;
-    border: 1px solid #dcecef;
-    box-shadow: 0 25px 70px rgba(16, 42, 67, 0.12);
-    display: grid;
-    place-items: center;
-}
-
-.bridge-icon {
-    width: 110px;
-    height: 110px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: #e5f7f4;
-    font-size: 3.2rem;
-    z-index: 2;
-}
-
-.bridge-line {
-    position: absolute;
-    width: 220px;
-    height: 90px;
-    border-bottom: 8px solid #0f9d8a;
-    border-radius: 50%;
-    bottom: 105px;
-}
-
-.opportunity-bubble {
-    position: absolute;
-    background: white;
-    border: 1px solid #dcecef;
-    padding: 10px 14px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(16, 42, 67, 0.1);
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.bubble-one {
-    top: 35px;
-    left: 20px;
-}
-
-.bubble-two {
-    top: 55px;
-    right: 15px;
-}
-
-.bubble-three {
-    bottom: 28px;
-    right: 40px;
-}
-
-
-/* ---------- General Sections ---------- */
-
-.why-section,
-.opportunities-section,
-.process-section,
-.contact-section {
-    padding: 100px 0;
-}
-
-.section-heading {
-    max-width: 760px;
-}
-
-.section-heading.centered {
-    margin: 0 auto 55px;
     text-align: center;
+    padding: 60px 20px;
 }
 
-.section-heading p {
-    margin-top: 18px;
-    font-size: 1.05rem;
-}
-
-
-/* ---------- Why Section ---------- */
-
-.why-section {
-    background: white;
-}
-
-.comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-top: 55px;
-}
-
-.comparison-card {
-    padding: 35px;
-    border-radius: 20px;
-    border: 1px solid #dfeaed;
-}
-
-.problem-card {
-    background: #f8fafb;
-}
-
-.solution-card {
-    background: #edf9f7;
-    border-color: #bce8df;
-}
-
-.card-label {
-    display: inline-block;
-    margin-bottom: 15px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: #0f9d8a;
-}
-
-.comparison-card h3 {
-    margin-bottom: 20px;
-    font-size: 1.55rem;
-}
-
-.comparison-card ul {
-    padding-left: 20px;
-    color: #526777;
-}
-
-.comparison-card li {
-    margin: 10px 0;
-}
-
-
-/* ---------- Opportunities ---------- */
-
-.opportunities-section {
-    background: #f7fbfc;
-}
-
-.opportunity-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.opportunity-card {
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid #dfebef;
-    box-shadow: 0 8px 30px rgba(16, 42, 67, 0.04);
-    transition: 0.25s ease;
-}
-
-.opportunity-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 45px rgba(16, 42, 67, 0.1);
-}
-
-.opportunity-icon {
-    width: 55px;
-    height: 55px;
-    display: grid;
-    place-items: center;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    background: #e8f7f5;
-    font-size: 1.6rem;
-}
-
-.opportunity-card h3 {
+header h1 {
+    font-size: 42px;
     margin-bottom: 10px;
 }
 
-.opportunity-card p {
-    margin-bottom: 20px;
-    font-size: 0.95rem;
+header p {
+    font-size: 18px;
 }
 
-.opportunity-card a {
-    color: #0f9d8a;
-    font-weight: 800;
+/* Main sections */
+main {
+    max-width: 1100px;
+    margin: auto;
 }
 
-.trust-card {
-    border-color: #bce8df;
-}
-
-
-/* ---------- How It Works ---------- */
-
-.process-section {
-    background: white;
-}
-
-.steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.step {
-    padding: 30px;
-    border-top: 3px solid #0f9d8a;
-}
-
-.step-number {
-    display: block;
-    margin-bottom: 18px;
-    color: #0f9d8a;
-    font-weight: 900;
-    font-size: 0.85rem;
-}
-
-.step h3 {
-    margin-bottom: 12px;
-}
-
-
-/* ---------- Trust ---------- */
-
-.trust-section {
-    padding: 100px 0;
-    background: #102a43;
-    color: white;
-}
-
-.trust-content {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.trust-section h2 {
-    color: white;
-    margin-bottom: 25px;
-}
-
-.trust-section p {
-    color: #c8d7df;
-    margin-bottom: 16px;
-}
-
-.trust-box {
-    padding: 35px;
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.shield {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.trust-box h3 {
-    color: white;
-    margin-bottom: 12px;
-}
-
-
-/* ---------- Mission ---------- */
-
-.mission-section {
-    padding: 110px 0;
-    background: #e9f7f5;
+section {
+    padding: 70px 25px;
     text-align: center;
 }
 
-.mission-content {
-    max-width: 850px;
+section h2 {
+    font-size: 30px;
+    color: #123c69;
+    margin-bottom: 20px;
 }
 
-.mission-content h2 {
-    margin-bottom: 22px;
+section p {
+    max-width: 750px;
+    margin: 0 auto 20px;
 }
 
-.mission-content p {
-    font-size: 1.08rem;
+/* Home */
+#home {
+    background: white;
+    padding: 90px 25px;
 }
 
-
-/* ---------- Contact ---------- */
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 70px;
-    align-items: start;
+#home h2 {
+    font-size: 40px;
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#home a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 25px;
+    background: #f59e0b;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
 }
 
-.contact-form label {
-    margin-top: 8px;
-    font-weight: 700;
-    color: #102a43;
+#home a:hover {
+    background: #d97706;
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #d7e4e8;
+/* Opportunities */
+#opportunities {
+    background: #eef4fa;
+}
+
+#opportunities > div {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    min-height: 160px;
+    margin: 1%;
+    padding: 25px;
+    background: white;
     border-radius: 10px;
-    font: inherit;
-    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#opportunities h3 {
+    color: #123c69;
+    margin-bottom: 10px;
+}
+
+/* How it works */
+#how-it-works {
     background: white;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: #0f9d8a;
+/* Trust */
+#trust {
+    background: #eef4fa;
 }
 
-.contact-form button {
-    margin-top: 10px;
-    cursor: pointer;
-    font: inherit;
+/* Contact */
+#contact {
+    background: white;
 }
 
-.form-message {
-    margin-top: 10px;
-    font-size: 0.9rem;
-}
-
-
-/* ---------- Footer ---------- */
-
-.footer {
-    padding: 35px 0;
-    background: #0b2033;
+/* Footer */
+footer {
+    background: #123c69;
     color: white;
+    text-align: center;
+    padding: 25px;
 }
 
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-}
-
-.footer .logo {
-    color: white;
-}
-
-.footer p {
-    color: #aebfc9;
-    font-size: 0.9rem;
-    margin-top: 7px;
-}
-
-
-/* =========================================
-   MOBILE RESPONSIVE DESIGN
-   ========================================= */
-
-@media (max-width: 850px) {
-
-    .nav-links {
-        display: none;
+/* Mobile */
+@media (max-width: 700px) {
+    header h1 {
+        font-size: 34px;
     }
 
-    .hero-content,
-    .trust-content,
-    .contact-content {
-        grid-template-columns: 1fr;
+    #home h2 {
+        font-size: 32px;
     }
 
-    .hero {
-        padding: 75px 0;
-    }
-
-    .hero-visual {
-        min-height: 330px;
-    }
-
-    .comparison-grid,
-    .steps {
-        grid-template-columns: 1fr;
-    }
-
-    .opportunity-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-
-@media (max-width: 560px) {
-
-    .nav-button {
-        display: none;
-    }
-
-    .nav-container {
-        min-height: 68px;
-    }
-
-    .hero {
-        padding: 60px 0 75px;
-    }
-
-    .hero h1 {
-        font-size: 2.65rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .btn {
+    #opportunities > div {
+        display: block;
         width: 100%;
-    }
-
-    .opportunity-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .comparison-card,
-    .opportunity-card,
-    .trust-box {
-        padding: 25px;
-    }
-
-    .why-section,
-    .opportunities-section,
-    .process-section,
-    .contact-section,
-    .trust-section,
-    .mission-section {
-        padding: 70px 0;
+        margin: 15px 0;
     }
 }
