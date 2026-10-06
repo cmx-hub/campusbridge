@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="CampusBridge logo">
+  <rect width="120" height="120" rx="34" fill="#0F2547"/>
+
+  <!-- Graduation cap -->
+  <path d="M36 46V60Q60 73 84 60V46" fill="#13A3A0"/>
+  <path d="M60 17L103 34L60 51L17 34Z" fill="#FFFFFF"/>
+
+  <!-- Tassel -->
+  <path d="M103 34V56"
+        stroke="#F4A62A"
+        stroke-width="4"
+        stroke-linecap="round"/>
+  <circle cx="103" cy="60" r="4.5" fill="#F4A62A"/>
+
+  <!-- Bridge -->
+  <path d="M24 100Q60 62 96 100"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="6.5"
+        stroke-linecap="round"/>
+
+  <path d="M16 100H104"
+        stroke="#F4A62A"
+        stroke-width="6.5"
+        stroke-linecap="round"/>
+
+  <!-- Bridge supports -->
+  <path d="M42 90V100M60 83V100M78 90V100"
+        stroke="#FFFFFF"
+        stroke-width="4.5"
+        stroke-linecap="round"
+        opacity=".8"/>
+</svg>
