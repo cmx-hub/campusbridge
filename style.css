@@ -1655,3 +1655,99 @@ html {
         white-space: nowrap;
     }
 }
+
+/* ================================
+   CAMPUSBRIDGE WELCOME SCREEN
+   ================================ */
+
+.campusbridge-welcome {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+}
+
+.welcome-caption {
+    margin-top: 22px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    opacity: 0.65;
+}
+
+.welcome-card {
+    padding: 42px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(18px);
+    max-width: 430px;
+    margin-left: auto;
+}
+
+.welcome-card-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+}
+
+.welcome-card h2 {
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.welcome-card p {
+    line-height: 1.7;
+    opacity: 0.72;
+    margin-bottom: 28px;
+}
+
+.welcome-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.welcome-flow span:nth-child(even) {
+    opacity: 0.45;
+}
+
+@media (max-width: 800px) {
+
+    .campusbridge-welcome {
+        min-height: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .welcome-card {
+        margin: 20px auto 0;
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .welcome-card {
+        padding: 28px 24px;
+        border-radius: 20px;
+    }
+
+    .welcome-card h2 {
+        font-size: 1.45rem;
+    }
+
+    .welcome-flow {
+        font-size: 0.78rem;
+    }
+}
