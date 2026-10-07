@@ -26,59 +26,113 @@
 
     <main>
 
-        <section class="hero">
+        <section class="login-page">
 
-            <div class="container">
+            <div class="container login-layout">
 
-                <div class="section-heading">
+                <div class="login-intro">
 
                     <span class="eyebrow">
-                        STUDENT ACCOUNT
+                        CAMPUSBRIDGE STUDENT ACCOUNT
                     </span>
 
                     <h1>
-                        Welcome back to CampusBridge.
+                        Welcome back to
+                        <span>CampusBridge.</span>
                     </h1>
 
                     <p>
-                        Sign in to access your opportunities and track your applications.
+                        Discover trusted opportunities, manage your applications,
+                        and keep your academic and career journey organized in one place.
                     </p>
+
+                    <div class="login-features">
+
+                        <div class="login-feature">
+                            <div class="login-feature-icon">🔎</div>
+                            <div>
+                                <strong>Discover opportunities</strong>
+                                <span>Find opportunities that match your goals.</span>
+                            </div>
+                        </div>
+
+                        <div class="login-feature">
+                            <div class="login-feature-icon">🛡️</div>
+                            <div>
+                                <strong>Verify before you apply</strong>
+                                <span>Use CampusBridge trust and safety tools.</span>
+                            </div>
+                        </div>
+
+                        <div class="login-feature">
+                            <div class="login-feature-icon">📋</div>
+                            <div>
+                                <strong>Track your applications</strong>
+                                <span>Keep your applications organized and visible.</span>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <form id="login-form" class="login-form">
+                <div class="login-card">
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
+                    <div class="login-card-header">
 
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            required
-                        >
+                        <h2>Sign in</h2>
+
+                        <p>
+                            Access your CampusBridge student dashboard.
+                        </p>
+
                     </div>
 
-                    <div class="form-group">
-                        <label for="password">Password</label>
+                    <form id="login-form" class="login-form">
 
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Enter your password"
-                            required
-                        >
-                    </div>
+                        <div class="form-group">
 
-                    <button type="submit" class="btn btn-primary">
-                        Sign In
-                    </button>
+                            <label for="email">
+                                Email address
+                            </label>
 
-                    <p id="login-message"></p>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
 
-                </form>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Sign In
+                        </button>
+
+                        <p id="login-message"></p>
+
+                    </form>
+
+                </div>
 
             </div>
 

@@ -1328,3 +1328,201 @@ section {
         padding-top: 80px;
     }
 }
+
+/* ================================
+   CAMPUSBRIDGE LOGIN PAGE
+   ================================ */
+
+.login-page {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.login-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 70px;
+    align-items: center;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.login-intro {
+    max-width: 560px;
+}
+
+.login-intro .eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+.login-intro h1 {
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    margin-bottom: 22px;
+}
+
+.login-intro h1 span {
+    display: block;
+}
+
+.login-intro p {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    opacity: 0.8;
+    max-width: 520px;
+}
+
+.login-features {
+    display: grid;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+.login-feature {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.login-feature-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 1.1rem;
+}
+
+.login-feature strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.login-feature span {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.login-card {
+    width: 100%;
+    padding: 38px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(14px);
+}
+
+.login-card-header {
+    margin-bottom: 28px;
+}
+
+.login-card-header h2 {
+    margin-bottom: 8px;
+}
+
+.login-card-header p {
+    margin: 0;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+.login-form {
+    display: grid;
+    gap: 20px;
+}
+
+.login-form .form-group {
+    display: grid;
+    gap: 8px;
+}
+
+.login-form label {
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.login-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    color: inherit;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-form input:focus {
+    border-color: currentColor;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.login-form input::placeholder {
+    opacity: 0.45;
+}
+
+.login-form .btn {
+    width: 100%;
+    margin-top: 4px;
+}
+
+#login-message {
+    min-height: 22px;
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 800px) {
+
+    .login-page {
+        padding: 40px 0;
+    }
+
+    .login-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .login-intro {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .login-intro p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .login-features {
+        text-align: left;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .login-card {
+        max-width: 520px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .login-card {
+        padding: 26px 20px;
+        border-radius: 18px;
+    }
+
+    .login-intro h1 {
+        font-size: 2.3rem;
+    }
+}
