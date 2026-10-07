@@ -2483,3 +2483,116 @@ html {
 .public-login-link .public-sidebar-icon {
     background: rgba(255, 255, 255, 0.1);
 }
+
+/* CampusBridge homepage hero carousel */
+.campusbridge-welcome {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.campusbridge-welcome .container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.campusbridge-hero-slider {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.campusbridge-hero-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 850px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s ease;
+}
+
+.campusbridge-hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.campusbridge-hero-slide h1 {
+    max-width: 850px;
+    margin-bottom: 24px;
+}
+
+.campusbridge-hero-slide .hero-text {
+    max-width: 700px;
+    font-size: 1.12rem;
+    line-height: 1.8;
+}
+
+.campusbridge-hero-slide .hero-buttons {
+    margin-top: 30px;
+}
+
+.campusbridge-hero-slide .welcome-caption {
+    margin-top: 28px;
+}
+
+.campusbridge-hero-indicators {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.campusbridge-hero-indicators span {
+    width: 28px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+}
+
+.campusbridge-hero-indicators span.active {
+    width: 52px;
+    background: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 700px) {
+    .campusbridge-welcome,
+    .campusbridge-welcome .container {
+        min-height: calc(100vh - 20px);
+    }
+
+    .campusbridge-hero-slider {
+        min-height: 560px;
+    }
+
+    .campusbridge-hero-slide {
+        max-width: 100%;
+    }
+
+    .campusbridge-hero-slide .hero-text {
+        font-size: 1rem;
+    }
+
+    .campusbridge-hero-indicators {
+        margin-top: 12px;
+    }
+}

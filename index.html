@@ -91,75 +91,111 @@
         <!-- HERO -->
         <section id="home" class="hero campusbridge-welcome">
 
-            <div class="container hero-grid">
+    <div class="container">
 
-                <div class="hero-content">
+        <div class="campusbridge-hero-slider" aria-label="CampusBridge introduction">
 
-                    <span class="eyebrow">
-                        STUDENT OPPORTUNITY PLATFORM
-                    </span>
+            <article class="campusbridge-hero-slide active">
+                <span class="eyebrow">
+                    STUDENT OPPORTUNITY PLATFORM
+                </span>
 
-                    <h1>
-                        Welcome to
-                        <span>CampusBridge.</span>
-                    </h1>
+                <h1>
+                    Welcome to
+                    <span>CampusBridge.</span>
+                </h1>
 
-                    <p class="hero-text">
-                        Discover trusted scholarships, internships, competitions,
-                        training and career opportunities — then verify before you apply.
-                    </p>
+                <p class="hero-text">
+                    Discover trusted scholarships, internships, competitions,
+                    training and career opportunities — then verify before you apply.
+                </p>
 
-                    <div class="hero-buttons">
+                <div class="hero-buttons">
+                    <a href="opportunities.html" class="btn btn-primary">
+                        Explore Opportunities
+                    </a>
 
-                        <a href="opportunities.html" class="btn btn-primary">
-                            Explore Opportunities
-                        </a>
-
-                        <a href="account.html" class="btn btn-secondary">
-                            Get Started
-                        </a>
-
-                    </div>
-
-                    <p class="welcome-caption">
-                        Discover. Verify. Apply with confidence.
-                    </p>
-
+                    <a href="login.html" class="btn btn-secondary">
+                        Get Started
+                    </a>
                 </div>
 
-                <div class="hero-visual">
+                <p class="welcome-caption">
+                    Discover. Verify. Apply with confidence.
+                </p>
+            </article>
 
-                    <div class="welcome-card">
+            <article class="campusbridge-hero-slide">
+                <span class="eyebrow">
+                    YOUR OPPORTUNITY BRIDGE
+                </span>
 
-                        <div class="welcome-card-icon">
-                            ✦
-                        </div>
+                <h1>
+                    Your bridge to
+                    <span>opportunity.</span>
+                </h1>
 
-                        <h2>
-                            Your bridge to opportunity.
-                        </h2>
+                <p class="hero-text">
+                    Find opportunities in one place and make more informed
+                    decisions before submitting an application.
+                </p>
 
-                        <p>
-                            Find opportunities in one place and make more informed
-                            decisions before submitting an application.
-                        </p>
+                <div class="hero-buttons">
+                    <a href="opportunities.html" class="btn btn-primary">
+                        Explore Opportunities
+                    </a>
 
-                        <div class="welcome-flow">
-                            <span>Discover</span>
-                            <span>→</span>
-                            <span>Verify</span>
-                            <span>→</span>
-                            <span>Apply</span>
-                        </div>
-
-                    </div>
-
+                    <a href="trust.html" class="btn btn-secondary">
+                        Learn About Trust
+                    </a>
                 </div>
 
-            </div>
+                <p class="welcome-caption">
+                    Discover. Verify. Apply with confidence.
+                </p>
+            </article>
 
-        </section>
+        </div>
 
+        <div class="campusbridge-hero-indicators" aria-hidden="true">
+            <span class="active"></span>
+            <span></span>
+        </div>
 
-        <!-- ABOUT -->        </div>
     </div>
+
+</section>
+
+
+        <!-- ABOUT -->
+
+    </main>
+
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".campusbridge-hero-slide");
+    const indicators = document.querySelectorAll(".campusbridge-hero-indicators span");
+
+    if (slides.length < 2) {
+        return;
+    }
+
+    let currentSlide = 0;
+
+    setInterval(() => {
+        slides[currentSlide].classList.remove("active");
+        indicators[currentSlide].classList.remove("active");
+
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        slides[currentSlide].classList.add("active");
+        indicators[currentSlide].classList.add("active");
+    }, 5000);
+});
+</script>
+
+</body>
+</html>
