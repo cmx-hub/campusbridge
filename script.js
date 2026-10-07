@@ -385,81 +385,226 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* -----------------------------------------
-           Simulated local verification process
+           Real CampusBridge backend verification
            ----------------------------------------- */
 
-        setTimeout(() => {
+        fetch(
+            "https://campusbridge-backend-production-4b21.up.railway.app/api/verify",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    url: sourceUrl,
+                    organization: sourceName
+                })
+            }
+        )
+        .then(async response => {
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(
+                    result.error ||
+                    "Verification request failed."
+                );
+            }
+
+            return result;
+
+        })
+        .then(result => {
 
             const progress =
                 panel.querySelector(
                     ".verification-progress p"
                 );
 
+            const results =
+                panel.querySelectorAll(
+                    ".verification-result"
+                );
+
             if (progress) {
 
                 progress.textContent =
-                    "Source link found. Review the official page before applying.";
+                    `Verification complete. Risk level: ${
+                        result.risk_level || "UNKNOWN"
+                    }.`;
 
             }
 
+            if (results[0]) {
+
+                const verified =
+                    result.source_verified === true;
+
+                results[0].classList.remove(
+                    "pending",
+                    "available",
+                    "review"
+                );
+
+                results[0].classList.add(
+                    verified
+                        ? "available"
+                        : "review"
+                );
+
+                results[0].querySelector(
+                    ".result-icon"
+                ).textContent =
+                    verified ? "✓" : "⚠";
+
+                results[0].querySelector(
+                    "small"
+                ).textContent =
+                    verified
+                        ? "The domain matches a known official source."
+                        : "The domain could not be confirmed as an official source.";
+
+            }
+
+            if (results[1]) {
+
+                const secure =
+                    result.https === true;
+
+                results[1].classList.remove(
+                    "pending",
+                    "available",
+                    "review"
+                );
+
+                results[1].classList.add(
+                    secure
+                        ? "available"
+                        : "review"
+                );
+
+                results[1].querySelector(
+                    ".result-icon"
+                ).textContent =
+                    secure ? "✓" : "⚠";
+
+                results[1].querySelector(
+                    "small"
+                ).textContent =
+                    secure
+                        ? "HTTPS is enabled for the source."
+                        : "The source does not use HTTPS.";
+
+            }
+
+            if (results[2]) {
+
+                const riskLevel =
+                    String(
+                        result.risk_level || "UNKNOWN"
+                    ).toUpperCase();
+
+                const lowRisk =
+                    riskLevel === "LOW";
+
+                results[2].classList.remove(
+                    "pending",
+                    "available",
+                    "review"
+                );
+
+                results[2].classList.add(
+                    lowRisk
+                        ? "available"
+                        : "review"
+                );
+
+                results[2].querySelector(
+                    ".result-icon"
+                ).textContent =
+                    lowRisk ? "✓" : "⚠";
+
+                results[2].querySelector(
+                    "small"
+                ).textContent =
+                    `Risk score: ${
+                        result.risk_score ?? "N/A"
+                    }/100 (${riskLevel}).`;
+
+            }
+
+            const note =
+                panel.querySelector(
+                    ".verification-note p"
+                );
+
+            if (note) {
+
+                const findings =
+                    Array.isArray(result.findings)
+                        ? result.findings
+                        : [];
+
+                note.textContent =
+                    findings.length
+                        ? findings.slice(0, 4).join(" ")
+                        : "Verification completed without additional findings.";
+
+            }
+
+        })
+        .catch(error => {
+
+            const progress =
+                panel.querySelector(
+                    ".verification-progress p"
+                );
 
             const results =
                 panel.querySelectorAll(
                     ".verification-result"
                 );
 
+            const note =
+                panel.querySelector(
+                    ".verification-note p"
+                );
 
-            if (results[0]) {
+            if (progress) {
 
-                results[0].classList.remove("pending");
-                results[0].classList.add("available");
-
-                results[0].querySelector(
-                    ".result-icon"
-                ).textContent = "✓";
-
-                results[0].querySelector(
-                    "small"
-                ).textContent =
-                    "A source link has been provided.";
+                progress.textContent =
+                    "Verification could not be completed.";
 
             }
 
+            if (note) {
 
-            if (results[1]) {
-
-                results[1].classList.remove("pending");
-                results[1].classList.add("available");
-
-                results[1].querySelector(
-                    ".result-icon"
-                ).textContent = "✓";
-
-                results[1].querySelector(
-                    "small"
-                ).textContent =
-                    "The listing contains source information.";
+                note.textContent =
+                    error.message ||
+                    "The CampusBridge verification service is currently unavailable.";
 
             }
 
+            results.forEach(result => {
 
-            if (results[2]) {
+                result.classList.remove(
+                    "pending",
+                    "available"
+                );
 
-                results[2].classList.remove("pending");
-                results[2].classList.add("review");
+                result.classList.add("review");
 
-                results[2].querySelector(
-                    ".result-icon"
-                ).textContent = "⚠";
+                const icon =
+                    result.querySelector(".result-icon");
 
-                results[2].querySelector(
-                    "small"
-                ).textContent =
-                    "Independent cross-platform verification is not available in this frontend yet.";
+                if (icon) {
+                    icon.textContent = "⚠";
+                }
 
-            }
+            });
 
-        }, 1200);
+        });
 
 
         /* -----------------------------------------
