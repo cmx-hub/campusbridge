@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Opportunity Details | CampusBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="public-shell">
+
+    <aside class="public-sidebar">
+
+        <div class="public-brand">
+            <a href="index.html">
+                CampusBridge
+            </a>
+        </div>
+
+        <nav class="public-sidebar-nav">
+
+            <a href="index.html" class="public-sidebar-link">
+                <span class="public-sidebar-icon">⌂</span>
+                <span>Home</span>
+            </a>
+
+            <a href="opportunities.html" class="public-sidebar-link active">
+                <span class="public-sidebar-icon">◈</span>
+                <span>Opportunities</span>
+            </a>
+
+            <a href="how-it-works.html" class="public-sidebar-link">
+                <span class="public-sidebar-icon">↗</span>
+                <span>How It Works</span>
+            </a>
+
+            <a href="product.html" class="public-sidebar-link">
+                <span class="public-sidebar-icon">▣</span>
+                <span>Product</span>
+            </a>
+
+            <a href="trust.html" class="public-sidebar-link">
+                <span class="public-sidebar-icon">✓</span>
+                <span>Trust & Safety</span>
+            </a>
+
+            <a href="business.html" class="public-sidebar-link">
+                <span class="public-sidebar-icon">▤</span>
+                <span>Business</span>
+            </a>
+
+            <a href="about.html" class="public-sidebar-link">
+                <span class="public-sidebar-icon">♙</span>
+                <span>Founder</span>
+            </a>
+
+            <a href="contact.html" class="public-sidebar-link">
+                <span class="public-sidebar-icon">☎</span>
+                <span>Contact</span>
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="public-login-link">
+            <span class="public-sidebar-icon">→</span>
+            <span>Login</span>
+        </a>
+
+    </aside>
+
+
+    <main class="public-main opportunity-details-page">
+
+        <a href="opportunities.html" class="opportunity-back-link">
+            ← Back to Opportunities
+        </a>
+
+        <section class="opportunity-details-card">
+
+            <div class="opportunity-details-top">
+
+                <span id="detail-category" class="listing-category">
+                    Opportunity
+                </span>
+
+                <span id="detail-status" class="verified">
+                    ✓ Official Source
+                </span>
+
+            </div>
+
+            <h1 id="detail-title">
+                Opportunity Details
+            </h1>
+
+            <p id="detail-description" class="opportunity-details-description">
+                Loading opportunity information...
+            </p>
+
+            <div id="detail-meta" class="opportunity-details-meta">
+            </div>
+
+
+            <div class="opportunity-details-section">
+
+                <h2>About this opportunity</h2>
+
+                <p id="detail-about">
+                    This opportunity is listed on CampusBridge to help students
+                    discover and access the original announcement.
+                </p>
+
+            </div>
+
+
+            <div class="opportunity-details-section">
+
+                <h2>Source</h2>
+
+                <p id="detail-source">
+                    —
+                </p>
+
+            </div>
+
+
+            <div class="opportunity-details-section verification-section">
+
+                <h2>CampusBridge verification</h2>
+
+                <p>
+                    CampusBridge directs students to the original source so they
+                    can review the complete announcement, requirements and
+                    application instructions before applying.
+                </p>
+
+                <div class="verification-note">
+                    <strong>Important:</strong>
+                    Always confirm the latest deadline and eligibility
+                    requirements on the official source before submitting an
+                    application.
+                </div>
+
+            </div>
+
+
+            <div class="opportunity-details-actions">
+
+                <a
+                    id="detail-source-button"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="listing-button">
+                    View Official Source →
+                </a>
+
+                <a
+                    href="opportunities.html"
+                    class="details-secondary-button">
+                    Browse More Opportunities
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const title = params.get("title");
+    const description = params.get("description");
+    const category = params.get("category");
+    const location = params.get("location");
+    const level = params.get("level");
+    const date = params.get("date");
+    const source = params.get("source");
+    const sourceUrl = params.get("sourceUrl");
+
+    if (title) {
+        document.getElementById("detail-title").textContent = title;
+        document.title = `${title} | CampusBridge`;
+    }
+
+    if (description) {
+        document.getElementById("detail-description").textContent =
+            description;
+
+        document.getElementById("detail-about").textContent =
+            description;
+    }
+
+    if (category) {
+        document.getElementById("detail-category").textContent =
+            category;
+    }
+
+    if (source) {
+        document.getElementById("detail-source").textContent =
+            source;
+    }
+
+    const meta = document.getElementById("detail-meta");
+
+    const metaItems = [
+        location,
+        level,
+        date
+    ].filter(Boolean);
+
+    meta.innerHTML = metaItems
+        .map(item => `<span>${item}</span>`)
+        .join("");
+
+    const sourceButton =
+        document.getElementById("detail-source-button");
+
+    if (sourceUrl) {
+        sourceButton.href = sourceUrl;
+    } else {
+        sourceButton.style.display = "none";
+    }
+
+});
+
+</script>
+
+</body>
+</html>

@@ -526,5 +526,72 @@ document.addEventListener("DOMContentLoaded", () => {
         return escapeHTML(value);
 
     }
+    /* =========================================
+       CAMPUSBRIDGE BACKEND CONNECTION
+       ========================================= */
+
+    const BACKEND_URL =
+        "http://192.168.211.128:5000";
+
+    async function checkBackendConnection() {
+
+        try {
+
+            const response =
+                await fetch(`${BACKEND_URL}/api/health`);
+
+            if (!response.ok) {
+                throw new Error("Backend unavailable");
+            }
+
+            const data =
+                await response.json();
+
+            console.log(
+                "CampusBridge Backend:",
+                data.message
+            );
+
+        } catch (error) {
+
+            console.warn(
+                "CampusBridge Backend is currently unavailable."
+            );
+
+        }
+
+    }
+
+    checkBackendConnection();
+
+});
+
+/* =========================================
+   OPPORTUNITY DETAILS NAVIGATION
+   ========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const opportunityCards =
+        document.querySelectorAll(".opportunity-clickable");
+
+    opportunityCards.forEach(card => {
+
+        card.addEventListener("click", event => {
+
+            if (event.target.closest("a, button")) {
+                return;
+            }
+
+            const detailsUrl =
+                card.dataset.detailsUrl;
+
+            if (detailsUrl) {
+                window.location.href = detailsUrl;
+            }
+
+        });
+
+    });
 
 });

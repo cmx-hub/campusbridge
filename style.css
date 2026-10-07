@@ -2629,3 +2629,23 @@ html {
     opacity: 0.7;
     line-height: 1.6;
 }
+
+/* =========================================
+   CLICKABLE OPPORTUNITY CARDS
+   ========================================= */
+
+.opportunity-clickable {
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.opportunity-clickable:hover {
+    transform: translateY(-2px);
+}
+
+.opportunity-clickable:focus-within {
+    outline: 2px solid rgba(255, 255, 255, 0.25);
+    outline-offset: 3px;
+}
