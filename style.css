@@ -2448,3 +2448,38 @@ html {
         text-align: center;
     }
 }
+
+/* CampusBridge public sidebar icon polish */
+.public-sidebar-icon {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    display: inline-grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.07);
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.public-sidebar-icon svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.public-sidebar-link:hover .public-sidebar-icon,
+.public-sidebar-link.active .public-sidebar-icon,
+.public-login-link:hover .public-sidebar-icon {
+    background: rgba(255, 255, 255, 0.13);
+    transform: scale(1.06);
+}
+
+.public-login-link .public-sidebar-icon {
+    background: rgba(255, 255, 255, 0.1);
+}
