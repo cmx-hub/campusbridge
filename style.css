@@ -1526,3 +1526,132 @@ section {
         font-size: 2.3rem;
     }
 }
+
+/* ================================
+   CAMPUSBRIDGE ADVANCED NAVIGATION
+   ================================ */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-link,
+.nav-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 11px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.nav-link {
+    opacity: 0.72;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-1px);
+}
+
+.nav-link.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-grid;
+    place-items: center;
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.nav-login {
+    margin-left: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-login:hover {
+    transform: translateY(-1px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 1050px) {
+
+    .main-nav {
+        gap: 2px;
+    }
+
+    .nav-link,
+    .nav-login {
+        padding: 8px;
+    }
+
+    .nav-link span:last-child,
+    .nav-login span:last-child {
+        display: none;
+    }
+
+    .nav-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .site-header {
+        position: relative;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .main-nav {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+    }
+
+    .main-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-link span:last-child,
+    .nav-login span:last-child {
+        display: inline;
+    }
+
+    .nav-link,
+    .nav-login {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+}
