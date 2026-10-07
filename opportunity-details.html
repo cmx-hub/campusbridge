@@ -128,7 +128,7 @@
             </div>
 
 
-            <div class="opportunity-details-section verification-section">
+            <div id="campusbridge-verification" class="opportunity-details-section verification-section">
 
                 <h2>CampusBridge verification</h2>
 
@@ -188,6 +188,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const date = params.get("date");
     const source = params.get("source");
     const sourceUrl = params.get("sourceUrl");
+    const verification = params.get("verification");
+
+    if (verification === "1") {
+
+        setTimeout(() => {
+
+            const verificationSection =
+                document.getElementById(
+                    "campusbridge-verification"
+                );
+
+            if (verificationSection) {
+
+                verificationSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        }, 150);
+
+    }
 
     if (title) {
         document.getElementById("detail-title").textContent = title;

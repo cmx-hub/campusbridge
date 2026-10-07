@@ -127,43 +127,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     verifyButtons.forEach(button => {
 
-        button.addEventListener("click", () => {
+        button.addEventListener("click", event => {
 
-            const sourceUrl =
-                button.getAttribute("data-source");
+            event.stopPropagation();
 
             const card =
                 button.closest(".listing-card");
 
-            if (!card || !sourceUrl) {
+            if (!card) {
                 return;
             }
 
+            const detailsUrl =
+                card.dataset.detailsUrl;
 
-            const titleElement =
-                card.querySelector("h2");
+            if (!detailsUrl) {
+                return;
+            }
 
-            const sourceElement =
-                card.querySelector(".source small");
+            const separator =
+                detailsUrl.includes("?")
+                    ? "&"
+                    : "?";
 
-            const title =
-                titleElement
-                    ? titleElement.textContent.trim()
-                    : "This opportunity";
-
-            const sourceName =
-                sourceElement
-                    ? sourceElement.textContent.trim()
-                    : "Provided source";
-
-
-            showVerificationPanel(
-                title,
-                sourceName,
-                sourceUrl
-            );
+            window.location.href =
+                `${detailsUrl}${separator}verification=1`;
 
         });
+    });
+
 
     });
 
