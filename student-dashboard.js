@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:5000";
+const API_BASE = "https://campusbridge-backend-production-4b21.up.railway.app";
 const STUDENT_ID = 2;
 
 async function loadProfile() {
