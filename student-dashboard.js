@@ -1,5 +1,5 @@
 const API_BASE = "https://campusbridge-backend-production-4b21.up.railway.app";
-const STUDENT_ID = 2;
+const STUDENT_ID = 1;
 
 async function loadProfile() {
     const loading = document.getElementById("profile-loading");
