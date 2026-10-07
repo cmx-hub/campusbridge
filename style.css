@@ -2596,3 +2596,36 @@ html {
         margin-top: 12px;
     }
 }
+
+/* Opportunity search empty state */
+.opportunity-empty-state {
+    padding: 48px 24px;
+    margin-top: 24px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.opportunity-empty-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 16px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 1.6rem;
+}
+
+.opportunity-empty-state h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+}
+
+.opportunity-empty-state p {
+    margin: 0 auto;
+    max-width: 460px;
+    opacity: 0.7;
+    line-height: 1.6;
+}

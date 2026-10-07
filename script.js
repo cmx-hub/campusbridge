@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.querySelector(".search-box input");
     const filterButtons = document.querySelectorAll(".filter");
     const opportunityCards = document.querySelectorAll(".listing-card");
+    const emptyState = document.querySelector(".opportunity-empty-state");
 
     let currentFilter = "all";
 
@@ -16,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const searchTerm = searchInput
             ? searchInput.value.toLowerCase().trim()
             : "";
+
+        let visibleCount = 0;
 
         opportunityCards.forEach(card => {
 
@@ -40,11 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (matchesSearch && matchesFilter) {
                 card.style.display = "";
+                visibleCount++;
             } else {
                 card.style.display = "none";
             }
 
         });
+
+        if (emptyState) {
+            emptyState.hidden = visibleCount !== 0;
+        }
 
     }
 
