@@ -157,9 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    });
-
-
     /* =========================================
        VERIFICATION PANEL
        ========================================= */
