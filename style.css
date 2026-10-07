@@ -1751,3 +1751,304 @@ html {
         font-size: 0.78rem;
     }
 }
+
+
+/* =========================================
+   STUDENT DASHBOARD
+   ========================================= */
+
+.dashboard-shell {
+    min-height: 100vh;
+    display: flex;
+}
+
+.dashboard-sidebar {
+    width: 245px;
+    min-height: 100vh;
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    box-sizing: border-box;
+}
+
+.dashboard-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px 28px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+.dashboard-brand-mark {
+    width: 36px;
+    height: 36px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.dashboard-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dashboard-menu-link,
+.dashboard-logout {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    border-radius: 10px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    opacity: 0.72;
+    transition:
+        background 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.dashboard-menu-link:hover,
+.dashboard-logout:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateX(2px);
+}
+
+.dashboard-menu-link.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-menu-icon {
+    width: 22px;
+    min-width: 22px;
+    display: inline-grid;
+    place-items: center;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.dashboard-sidebar-bottom {
+    margin-top: auto;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dashboard-main {
+    flex: 1;
+    min-width: 0;
+    padding: 42px 42px 60px;
+}
+
+.dashboard-topbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 28px;
+}
+
+.dashboard-topbar h1 {
+    margin: 4px 0 8px;
+}
+
+.dashboard-subtitle {
+    margin: 0;
+    max-width: 650px;
+    opacity: 0.72;
+}
+
+.dashboard-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.dashboard-stat-card {
+    padding: 22px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.035);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-stat-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.dashboard-stat-card strong {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 1.45rem;
+}
+
+.dashboard-stat-card span:last-child,
+.dashboard-stat-card a {
+    font-size: 0.9rem;
+    opacity: 0.68;
+}
+
+.dashboard-stat-card a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.dashboard-stat-card a:hover {
+    opacity: 1;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 22px;
+}
+
+.dashboard-card {
+    min-width: 0;
+    padding: 26px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.035);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card-header {
+    margin-bottom: 22px;
+}
+
+.dashboard-card-eyebrow {
+    margin: 0 0 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.55;
+}
+
+.dashboard-card h2 {
+    margin: 0;
+}
+
+.dashboard-card p {
+    line-height: 1.6;
+}
+
+.application-count {
+    margin-top: 0;
+}
+
+.application-item {
+    padding: 16px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.application-item h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 900px) {
+    .dashboard-sidebar {
+        width: 210px;
+    }
+
+    .dashboard-main {
+        padding: 32px 24px 50px;
+    }
+
+    .dashboard-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .dashboard-shell {
+        display: block;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        min-height: auto;
+        position: relative;
+        padding: 18px 16px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dashboard-brand {
+        padding-bottom: 16px;
+    }
+
+    .dashboard-menu {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .dashboard-menu-link,
+    .dashboard-logout {
+        width: auto;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .dashboard-sidebar-bottom {
+        margin-top: 10px;
+        padding-top: 0;
+    }
+
+    .dashboard-sidebar-bottom .dashboard-menu-link {
+        display: none;
+    }
+
+    .dashboard-main {
+        padding: 28px 16px 40px;
+    }
+
+    .dashboard-topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .dashboard-topbar .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .dashboard-card {
+        padding: 20px;
+    }
+}
