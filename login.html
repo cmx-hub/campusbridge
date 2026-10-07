@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | CampusBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <img src="campusbridge-logo.svg"
+                     alt="CampusBridge logo"
+                     class="logo-image">
+                <span>CampusBridge</span>
+            </a>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        STUDENT ACCOUNT
+                    </span>
+
+                    <h1>
+                        Welcome back to CampusBridge.
+                    </h1>
+
+                    <p>
+                        Sign in to access your opportunities and track your applications.
+                    </p>
+
+                </div>
+
+                <form id="login-form" class="login-form">
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Sign In
+                    </button>
+
+                    <p id="login-message"></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="login.js"></script>
+
+</body>
+</html>
