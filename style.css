@@ -1769,6 +1769,7 @@ html {
     display: flex;
     flex-direction: column;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
     align-self: flex-start;
@@ -1798,14 +1799,17 @@ html {
 }
 
 .dashboard-menu {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 6px;
 }
 
 .dashboard-menu-link,
 .dashboard-logout {
     width: 100%;
+    flex: none;
     min-height: 44px;
     padding: 10px 12px;
     box-sizing: border-box;
@@ -2064,8 +2068,9 @@ html {
 }
 
 .public-sidebar {
+    flex: 0 0 245px;
     width: 245px;
-    min-height: 100vh;
+    height: 100vh;
     padding: 28px 18px;
     box-sizing: border-box;
     display: flex;
@@ -2073,6 +2078,7 @@ html {
     position: sticky;
     top: 0;
     align-self: flex-start;
+    overflow-y: auto;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -2157,6 +2163,7 @@ html {
 .public-main {
     flex: 1;
     min-width: 0;
+    width: calc(100% - 245px);
 }
 
 .public-main .site-header {
