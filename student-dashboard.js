@@ -20,7 +20,10 @@ async function loadProfile() {
 
     try {
         const response = await fetch(
-            `${API_BASE}/api/students/${STUDENT_ID}/profile`
+            `${API_BASE}/api/students/${STUDENT_ID}/profile`,
+            {
+                headers: AUTH_HEADERS
+            }
         );
 
         const data = await response.json();
