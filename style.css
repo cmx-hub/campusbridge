@@ -2966,3 +2966,98 @@ html {
 .dashboard-sidebar .dashboard-menu-icon {
     transition: color 0.15s ease, transform 0.15s ease;
 }
+
+/* Password visibility control */
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 48px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #5b6b86;
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.password-toggle svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.password-toggle:hover {
+    background: #eef2f8;
+    color: #16233f;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid rgba(20, 163, 154, 0.35);
+    outline-offset: 2px;
+}
+
+.password-toggle:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Refined authentication page spacing */
+.login-page {
+    padding-top: 42px;
+    padding-bottom: 56px;
+}
+
+.login-card {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.login-card h2 {
+    margin-bottom: 8px;
+}
+
+.login-card > p {
+    margin-bottom: 24px;
+}
+
+.login-form,
+.register-form {
+    gap: 16px;
+}
+
+.auth-switch {
+    margin-top: 18px;
+    padding-top: 16px;
+}
+
+@media (max-width: 600px) {
+    .login-page {
+        padding-top: 24px;
+        padding-bottom: 32px;
+    }
+
+    .login-card {
+        padding: 24px 20px;
+    }
+}
