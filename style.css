@@ -3061,3 +3061,43 @@ html {
         padding: 24px 20px;
     }
 }
+
+/* Refined authentication branding */
+.login-page {
+    display: flex;
+    justify-content: center;
+}
+
+.login-card-header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.login-card-header h2 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.login-card-header p {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #5b6b86;
+}
+
+.login-card::before {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 4px;
+    margin: 0 auto 22px;
+    border-radius: 999px;
+    background: #14a39a;
+}
+
+@media (max-width: 600px) {
+    .login-card-header h2 {
+        font-size: 1.5rem;
+    }
+}
