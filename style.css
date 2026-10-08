@@ -3101,3 +3101,227 @@ html {
         font-size: 1.5rem;
     }
 }
+
+/* CampusBridge full-width and responsive layout correction */
+
+/* CampusBridge full-width and responsive layout correction */
+html {
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    overflow-x: clip;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.container {
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main,
+.public-main,
+.dashboard-main {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.public-shell,
+.dashboard-shell {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.public-main,
+.dashboard-main {
+    flex: 1 1 0%;
+}
+
+/* Keep the authentication card in one centered column */
+.login-page {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    padding: 32px 20px 48px;
+}
+
+.login-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 560px;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+.login-card {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+.login-card-header {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.login-card-header h2,
+.login-card-header p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.login-form,
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    gap: 16px;
+}
+
+.login-form .form-group,
+.register-form .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+}
+
+.login-form input,
+.register-form input,
+.login-form select,
+.register-form select,
+.login-form textarea,
+.register-form textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.login-form button.btn,
+.register-form button.btn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 46px;
+    white-space: normal;
+}
+
+/* Use the outer heading; avoid a duplicate heading in recovery mode */
+#forgot-password-form > .login-card-header {
+    display: none;
+}
+
+.forgot-password-row {
+    width: 100%;
+    text-align: right;
+}
+
+.forgot-password-button,
+.auth-switch-button {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+#password-reset-fields {
+    width: 100%;
+    min-width: 0;
+}
+
+#password-reset-fields .form-group {
+    margin-bottom: 16px;
+}
+
+#forgot-password-message,
+#login-message,
+#register-message {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.auth-switch {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .public-shell,
+    .dashboard-shell {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .public-sidebar,
+    .dashboard-sidebar {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .public-main,
+    .dashboard-main {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .login-page {
+        padding: 24px 16px 32px;
+    }
+
+    .login-layout {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .login-page {
+        padding: 18px 12px 28px;
+    }
+
+    .login-card {
+        padding: 22px 16px;
+    }
+
+    .login-card-header h2 {
+        font-size: 1.4rem;
+    }
+}
