@@ -3325,3 +3325,207 @@ main,
         font-size: 1.4rem;
     }
 }
+
+/* CampusBridge homepage alignment and mobile refinement */
+.campusbridge-hero-slider,
+.campusbridge-hero-slide {
+    width: 100%;
+    min-width: 0;
+}
+
+.campusbridge-hero-slide {
+    text-align: center;
+    align-items: center;
+}
+
+.campusbridge-hero-slide h1,
+.campusbridge-hero-slide h2,
+.campusbridge-hero-slide p {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-wrap: anywhere;
+}
+
+.campusbridge-hero-slide h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.15;
+}
+
+.campusbridge-hero-slide p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    .container {
+        width: calc(100% - 28px);
+        max-width: 100%;
+    }
+
+    .campusbridge-hero-slider,
+    .campusbridge-hero-slide {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .campusbridge-hero-slide {
+        padding: 32px 0;
+        text-align: center;
+    }
+
+    .campusbridge-hero-slide h1 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        line-height: 1.2;
+    }
+
+    .campusbridge-hero-slide h2 {
+        font-size: clamp(1.4rem, 5.5vw, 2rem);
+        line-height: 1.25;
+    }
+
+    .campusbridge-hero-slide p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .campusbridge-hero-slide a,
+    .campusbridge-hero-slide button {
+        max-width: 100%;
+        white-space: normal;
+    }
+
+    .public-sidebar {
+        padding: 12px 14px;
+    }
+
+    .public-sidebar-nav {
+        gap: 4px;
+    }
+
+    .public-sidebar-link,
+    .public-login-link {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .public-main {
+        padding: 20px 0;
+    }
+
+    .login-card-header h2 {
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Compact mobile navigation */
+.public-mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 760px) {
+    .public-sidebar {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 12px 16px;
+    }
+
+    .public-sidebar .public-brand {
+        margin: 0;
+        padding: 0;
+    }
+
+    .public-mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        border: 1px solid #e4e9f2;
+        border-radius: 10px;
+        background: #ffffff;
+        cursor: pointer;
+    }
+
+    .public-mobile-menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background: #16233f;
+    }
+
+    .public-sidebar-nav {
+        display: none;
+        flex: 0 0 100%;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .public-sidebar.mobile-menu-open .public-sidebar-nav {
+        display: flex;
+    }
+
+    .public-sidebar-nav .public-sidebar-link,
+    .public-sidebar-nav .public-login-link {
+        width: 100%;
+    }
+}
+
+/* CampusBridge forgot-password link polish */
+.forgot-password-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 4px 0 14px;
+}
+
+.forgot-password-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0;
+    border: 0;
+    background: transparent;
+    color: #155eef;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.forgot-password-button:hover {
+    color: #0b3da8;
+    text-decoration: underline;
+}
+
+.forgot-password-button:focus-visible {
+    outline: 2px solid #155eef;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+@media (max-width: 420px) {
+    .forgot-password-row {
+        margin-bottom: 12px;
+    }
+
+    .forgot-password-button {
+        font-size: 0.875rem;
+    }
+}

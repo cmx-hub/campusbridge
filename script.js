@@ -729,3 +729,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+/* CampusBridge mobile navigation toggle */
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".public-sidebar").forEach(sidebar => {
+        const button = sidebar.querySelector(".public-mobile-menu-toggle");
+        const nav = sidebar.querySelector(".public-sidebar-nav");
+
+        if (!button || !nav) return;
+
+        button.addEventListener("click", () => {
+            const isOpen = sidebar.classList.toggle("mobile-menu-open");
+            button.setAttribute("aria-expanded", String(isOpen));
+            button.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+        });
+
+        nav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                sidebar.classList.remove("mobile-menu-open");
+                button.setAttribute("aria-expanded", "false");
+                button.setAttribute("aria-label", "Open navigation menu");
+            });
+        });
+    });
+});
