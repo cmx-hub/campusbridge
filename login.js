@@ -260,6 +260,14 @@ registerForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
+    const legalConsent = document.getElementById("register-legal-consent");
+    if (!legalConsent || !legalConsent.checked) {
+        registerMessage.textContent =
+            "Please agree to the Privacy Policy and Terms of Use before creating an account.";
+        return;
+    }
+
+
     const name =
         document.getElementById("register-name").value.trim();
 
