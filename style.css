@@ -2649,3 +2649,100 @@ html {
     outline: 2px solid rgba(255, 255, 255, 0.25);
     outline-offset: 3px;
 }
+
+/* CampusBridge verification results */
+
+.verification-results {
+    margin-top: 24px;
+    display: grid;
+    gap: 16px;
+}
+
+.verification-status-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.045);
+}
+
+.verification-status-label {
+    font-size: 0.85rem;
+    opacity: 0.68;
+}
+
+.verification-status-card strong {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(46, 204, 113, 0.14);
+    color: #6ee7a8;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+}
+
+.verification-result-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.verification-result-item {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.verification-result-item span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+    opacity: 0.62;
+}
+
+.verification-result-item strong {
+    display: block;
+    font-size: 0.92rem;
+}
+
+.verification-findings {
+    padding: 18px 20px;
+    border-left: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.verification-findings strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.verification-findings p {
+    margin: 0;
+    line-height: 1.7;
+    opacity: 0.76;
+}
+
+@media (max-width: 900px) {
+    .verification-result-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .verification-status-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .verification-result-grid {
+        grid-template-columns: 1fr;
+    }
+}
