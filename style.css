@@ -3588,3 +3588,48 @@ main,
         background: #f2f6fc;
     }
 }
+
+/* Final mobile dropdown and Login placement */
+@media (max-width: 760px) {
+    .public-sidebar {
+        position: relative;
+        z-index: 1000;
+        overflow: visible;
+    }
+
+    .public-sidebar .public-sidebar-nav {
+        display: none !important;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 14px;
+        left: auto;
+        width: min(280px, calc(100vw - 28px));
+        max-height: 70vh;
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid #e5eaf2;
+        border-radius: 14px;
+        box-shadow: 0 14px 36px rgba(20, 35, 65, .18);
+    }
+
+    .public-sidebar.mobile-menu-open .public-sidebar-nav {
+        display: flex !important;
+    }
+
+    .public-sidebar .public-sidebar-nav a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 42px;
+        padding: 10px 12px;
+        border-radius: 9px;
+    }
+
+    .public-sidebar .public-sidebar-bottom {
+        display: none !important;
+    }
+}
