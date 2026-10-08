@@ -2746,3 +2746,38 @@ html {
         grid-template-columns: 1fr;
     }
 }
+
+/* Login and registration switch */
+
+.auth-switch {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.auth-switch-button {
+    margin-left: 6px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.auth-switch-button:hover {
+    opacity: 0.75;
+}
+
+#login-message,
+#register-message {
+    min-height: 20px;
+    margin: 12px 0 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
