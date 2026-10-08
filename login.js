@@ -11,6 +11,9 @@ const authDescription = document.getElementById("auth-description");
 
 const authSwitchText = document.getElementById("auth-switch-text");
 const authSwitchButton = document.getElementById("auth-switch-button");
+const forgotPasswordButton = document.getElementById("forgot-password-button");
+const backToLoginButton = document.getElementById("back-to-login-button");
+const forgotPasswordForm = document.getElementById("forgot-password-form");
 
 function showLoginForm() {
 
@@ -49,6 +52,136 @@ function showRegisterForm() {
 
     loginMessage.textContent = "";
 }
+
+forgotPasswordButton.addEventListener("click", () => {
+    loginForm.style.display = "none";
+    registerForm.style.display = "none";
+    forgotPasswordForm.style.display = "flex";
+
+    authTitle.textContent = "Reset your password";
+    authDescription.textContent =
+        "Enter your CampusBridge email to receive a recovery code.";
+});
+
+backToLoginButton.addEventListener("click", () => {
+    forgotPasswordForm.style.display = "none";
+    registerForm.style.display = "none";
+    loginForm.style.display = "flex";
+
+    authTitle.textContent = "Sign in";
+    authDescription.textContent =
+        "Access your CampusBridge student dashboard.";
+});
+
+forgotPasswordForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("forgot-email").value.trim();
+    const message = document.getElementById("forgot-password-message");
+
+    message.textContent = "Sending recovery code...";
+
+    try {
+        const response = await fetch(
+            `${API_BASE}/api/auth/request-password-reset`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email })
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            message.textContent =
+                result.error || "Unable to request password reset.";
+            return;
+        }
+
+        document.getElementById("password-reset-fields").style.display =
+            "block";
+
+        if (result.development_code) {
+            message.textContent =
+                `Recovery code: ${result.development_code} (expires in ${result.expires_in_minutes} minutes)`;
+        } else {
+            message.textContent =
+                result.message ||
+                "If an account exists for this email, a recovery code will be sent.";
+        }
+    } catch (error) {
+        console.error("Password reset request error:", error);
+        message.textContent =
+            "Unable to connect to CampusBridge. Please try again.";
+    }
+});
+
+const resetPasswordButton = document.getElementById("reset-password-button");
+
+resetPasswordButton.addEventListener("click", async () => {
+    const email = document.getElementById("forgot-email").value.trim();
+    const recoveryCode = document.getElementById("recovery-code").value.trim();
+    const newPassword = document.getElementById("new-password").value;
+    const message = document.getElementById("forgot-password-message");
+
+    if (!recoveryCode || !newPassword) {
+        message.textContent =
+            "Enter the recovery code and your new password.";
+        return;
+    }
+
+    message.textContent = "Resetting password...";
+
+    try {
+        const response = await fetch(
+            `${API_BASE}/api/auth/reset-password`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    recovery_code: recoveryCode,
+                    new_password: newPassword
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            message.textContent =
+                result.error || "Unable to reset password.";
+            return;
+        }
+
+        message.textContent =
+            "Password reset successfully. You can now sign in.";
+
+        document.getElementById("password-reset-fields").style.display =
+            "none";
+
+        document.getElementById("forgot-password-form").reset();
+
+        setTimeout(() => {
+            forgotPasswordForm.style.display = "none";
+            registerForm.style.display = "none";
+            loginForm.style.display = "flex";
+
+            authTitle.textContent = "Sign in";
+            authDescription.textContent =
+                "Access your CampusBridge student dashboard.";
+        }, 1500);
+    } catch (error) {
+        console.error("Password reset error:", error);
+        message.textContent =
+            "Unable to connect to CampusBridge. Please try again.";
+    }
+});
 
 authSwitchButton.addEventListener("click", () => {
 
