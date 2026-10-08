@@ -2792,3 +2792,149 @@ html {
 .login-card {
     width: 100%;
 }
+
+
+/* Standard CampusBridge student dashboard sidebar */
+
+.dashboard-sidebar {
+    width: 248px;
+    padding: 20px 14px;
+    background: #f7f9fc;
+    border-right: 1px solid #e4e9f2;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.dashboard-sidebar .dashboard-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 10px 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e4e9f2;
+    font-weight: 700;
+    font-size: 18px;
+    color: #16233f;
+}
+
+.dashboard-sidebar .dashboard-nav,
+.dashboard-sidebar .dashboard-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dashboard-sidebar .dashboard-nav-link,
+.dashboard-sidebar .dashboard-menu-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 42px;
+    padding: 0 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #5b6b86;
+    text-decoration: none;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.dashboard-sidebar .dashboard-nav-link:hover,
+.dashboard-sidebar .dashboard-menu-link:hover {
+    background: #eef2f8;
+    color: #16233f;
+}
+
+.dashboard-sidebar .dashboard-nav-link.active,
+.dashboard-sidebar .dashboard-menu-link.active {
+    background: rgba(20, 163, 154, 0.12);
+    color: #16233f;
+    font-weight: 600;
+}
+
+.dashboard-sidebar .dashboard-nav-link.active::before,
+.dashboard-sidebar .dashboard-menu-link.active::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 8px;
+    bottom: 8px;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: #14a39a;
+}
+
+.dashboard-sidebar .dashboard-nav-icon,
+.dashboard-sidebar .dashboard-menu-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: inline-grid;
+    place-items: center;
+}
+
+.dashboard-sidebar .dashboard-nav-icon svg,
+.dashboard-sidebar .dashboard-menu-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.dashboard-sidebar .dashboard-nav-link.active .dashboard-nav-icon,
+.dashboard-sidebar .dashboard-menu-link.active .dashboard-menu-icon {
+    color: #14a39a;
+}
+
+.dashboard-sidebar .dashboard-sidebar-bottom {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid #e4e9f2;
+}
+
+.dashboard-sidebar .dashboard-secondary-link,
+.dashboard-sidebar .dashboard-sidebar-bottom .dashboard-menu-link {
+    color: #5b6b86;
+}
+
+.dashboard-sidebar .dashboard-secondary-link:hover,
+.dashboard-sidebar .dashboard-sidebar-bottom .dashboard-menu-link:hover {
+    color: #16233f;
+}
+
+.dashboard-sidebar .dashboard-logout {
+    width: 100%;
+    margin-top: 4px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+}
+
+.dashboard-main {
+    min-width: 0;
+    flex: 1;
+}
+
+@media (max-width: 760px) {
+    .dashboard-sidebar {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 1px solid #e4e9f2;
+    }
+
+    .dashboard-sidebar .dashboard-sidebar-bottom {
+        margin-top: 12px;
+    }
+}
