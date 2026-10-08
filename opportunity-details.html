@@ -138,6 +138,56 @@
                     application instructions before applying.
                 </p>
 
+                <div class="verification-results" id="verification-results">
+
+                    <div class="verification-status-card">
+                        <span class="verification-status-label">
+                            Verification status
+                        </span>
+                        <strong id="verification-risk-level">
+                            Not checked yet
+                        </strong>
+                    </div>
+
+                    <div class="verification-result-grid">
+
+                        <div class="verification-result-item">
+                            <span>Risk score</span>
+                            <strong id="verification-risk-score">—</strong>
+                        </div>
+
+                        <div class="verification-result-item">
+                            <span>Official source</span>
+                            <strong id="verification-source-check">—</strong>
+                        </div>
+
+                        <div class="verification-result-item">
+                            <span>HTTPS</span>
+                            <strong id="verification-https">—</strong>
+                        </div>
+
+                        <div class="verification-result-item">
+                            <span>DNS</span>
+                            <strong id="verification-dns">—</strong>
+                        </div>
+
+                        <div class="verification-result-item">
+                            <span>TLS certificate</span>
+                            <strong id="verification-tls">—</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="verification-findings">
+                        <strong>Why this result?</strong>
+                        <p id="verification-findings-text">
+                            Verification details will appear here.
+                        </p>
+                    </div>
+
+                </div>
+
+
                 <div class="verification-note">
                     <strong>Important:</strong>
                     Always confirm the latest deadline and eligibility
@@ -191,6 +241,148 @@ document.addEventListener("DOMContentLoaded", () => {
     const verification = params.get("verification");
 
     if (verification === "1") {
+
+        const riskLevel =
+            document.getElementById("verification-risk-level");
+
+        const riskScore =
+            document.getElementById("verification-risk-score");
+
+        const sourceCheck =
+            document.getElementById("verification-source-check");
+
+        const httpsCheck =
+            document.getElementById("verification-https");
+
+        const dnsCheck =
+            document.getElementById("verification-dns");
+
+        const tlsCheck =
+            document.getElementById("verification-tls");
+
+        const findingsText =
+            document.getElementById("verification-findings-text");
+
+        if (riskLevel) {
+            riskLevel.textContent = "Checking source...";
+        }
+
+        if (findingsText) {
+            findingsText.textContent =
+                "CampusBridge is checking the source URL.";
+        }
+
+        if (sourceUrl) {
+
+            fetch(
+                "https://campusbridge-backend-production-4b21.up.railway.app/api/verify",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        url: sourceUrl,
+                        organization: source || null
+                    })
+                }
+            )
+            .then(async response => {
+
+                const result =
+                    await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        result.error ||
+                        "Verification request failed."
+                    );
+                }
+
+                return result;
+
+            })
+            .then(result => {
+
+                const level =
+                    String(
+                        result.risk_level || "UNKNOWN"
+                    ).toUpperCase();
+
+                if (riskLevel) {
+                    riskLevel.textContent =
+                        `Risk: ${level}`;
+                }
+
+                if (riskScore) {
+                    riskScore.textContent =
+                        `${result.risk_score ?? "—"}/100`;
+                }
+
+                if (sourceCheck) {
+                    sourceCheck.textContent =
+                        result.source_verified === true
+                            ? "Confirmed"
+                            : "Not confirmed";
+                }
+
+                if (httpsCheck) {
+                    httpsCheck.textContent =
+                        result.https === true
+                            ? "Enabled"
+                            : "Not enabled";
+                }
+
+                if (dnsCheck) {
+                    const tlsDns =
+                        result.tls_dns || {};
+
+                    dnsCheck.textContent =
+                        tlsDns.dns_resolved === true
+                            ? "Valid"
+                            : "Not confirmed";
+                }
+
+                if (tlsCheck) {
+                    const tlsDns =
+                        result.tls_dns || {};
+
+                    tlsCheck.textContent =
+                        tlsDns.tls && tlsDns.tls.expired === false
+                            ? "Valid"
+                            : "Not confirmed";
+                }
+
+                if (findingsText) {
+
+                    const findings =
+                        Array.isArray(result.findings)
+                            ? result.findings
+                            : [];
+
+                    findingsText.textContent =
+                        findings.length
+                            ? findings.join(" ")
+                            : "No additional findings were reported.";
+                }
+
+            })
+            .catch(error => {
+
+                if (riskLevel) {
+                    riskLevel.textContent =
+                        "Verification unavailable";
+                }
+
+                if (findingsText) {
+                    findingsText.textContent =
+                        error.message ||
+                        "CampusBridge could not complete verification.";
+                }
+
+            });
+
+        }
 
         setTimeout(() => {
 
