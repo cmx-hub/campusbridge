@@ -30,52 +30,6 @@
 
             <div class="container login-layout">
 
-                <div class="login-intro">
-
-                    <span class="eyebrow">
-                        CAMPUSBRIDGE STUDENT ACCOUNT
-                    </span>
-
-                    <h1>
-                        Welcome back to
-                        <span>CampusBridge.</span>
-                    </h1>
-
-                    <p>
-                        Discover trusted opportunities, manage your applications,
-                        and keep your academic and career journey organized in one place.
-                    </p>
-
-                    <div class="login-features">
-
-                        <div class="login-feature">
-                            <div class="login-feature-icon">🔎</div>
-                            <div>
-                                <strong>Discover opportunities</strong>
-                                <span>Find opportunities that match your goals.</span>
-                            </div>
-                        </div>
-
-                        <div class="login-feature">
-                            <div class="login-feature-icon">🛡️</div>
-                            <div>
-                                <strong>Verify before you apply</strong>
-                                <span>Use CampusBridge trust and safety tools.</span>
-                            </div>
-                        </div>
-
-                        <div class="login-feature">
-                            <div class="login-feature-icon">📋</div>
-                            <div>
-                                <strong>Track your applications</strong>
-                                <span>Keep your applications organized and visible.</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
                 <div class="login-card">
 
                     <div class="login-card-header">
@@ -113,14 +67,24 @@
                                 Password
                             </label>
 
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="Enter your password"
-                                autocomplete="current-password"
-                                required
-                            >
+                            <div class="password-field">
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    required
+                                >
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="password"
+                                    aria-label="Show password"
+                                >
+                                    👁
+                                </button>
+                            </div>
 
                         </div>
 
@@ -174,16 +138,82 @@
                                 Password
                             </label>
 
+                            <div class="password-field">
+                                <input
+                                    type="password"
+                                    id="register-password"
+                                    name="password"
+                                    placeholder="At least 8 characters"
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    required
+                                >
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="register-password"
+                                    aria-label="Show password"
+                                >
+                                    👁
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-institution">Institution</label>
                             <input
-                                type="password"
-                                id="register-password"
-                                name="password"
-                                placeholder="At least 8 characters"
-                                minlength="8"
-                                autocomplete="new-password"
+                                type="text"
+                                id="register-institution"
+                                name="institution"
+                                placeholder="Your university or institution"
+                                autocomplete="organization"
                                 required
                             >
+                        </div>
 
+                        <div class="form-group">
+                            <label for="register-field-of-study">Field of study</label>
+                            <input
+                                type="text"
+                                id="register-field-of-study"
+                                name="field_of_study"
+                                placeholder="e.g. Computer Engineering"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-level">Level</label>
+                            <input
+                                type="text"
+                                id="register-level"
+                                name="level"
+                                placeholder="e.g. Bachelor 3"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-skills">Skills</label>
+                            <input
+                                type="text"
+                                id="register-skills"
+                                name="skills"
+                                placeholder="e.g. Python, Networking, Research"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-interests">Interests</label>
+                            <input
+                                type="text"
+                                id="register-interests"
+                                name="interests"
+                                placeholder="e.g. Cybersecurity, AI, Entrepreneurship"
+                                required
+                            >
                         </div>
 
                         <button type="submit" class="btn btn-primary">

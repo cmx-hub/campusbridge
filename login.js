@@ -136,6 +136,21 @@ registerForm.addEventListener("submit", async (event) => {
     const password =
         document.getElementById("register-password").value;
 
+    const institution =
+        document.getElementById("register-institution").value.trim();
+
+    const fieldOfStudy =
+        document.getElementById("register-field-of-study").value.trim();
+
+    const level =
+        document.getElementById("register-level").value.trim();
+
+    const skills =
+        document.getElementById("register-skills").value.trim();
+
+    const interests =
+        document.getElementById("register-interests").value.trim();
+
     registerMessage.textContent =
         "Creating your account...";
 
@@ -151,7 +166,12 @@ registerForm.addEventListener("submit", async (event) => {
                 body: JSON.stringify({
                     name,
                     email,
-                    password
+                    password,
+                    institution,
+                    field_of_study: fieldOfStudy,
+                    level,
+                    skills,
+                    interests
                 })
             }
         );
@@ -187,5 +207,39 @@ registerForm.addEventListener("submit", async (event) => {
             "Unable to connect to CampusBridge. Please try again.";
 
     }
+
+});
+
+const passwordToggles =
+    document.querySelectorAll(".password-toggle");
+
+passwordToggles.forEach(toggle => {
+
+    toggle.addEventListener("click", () => {
+
+        const targetId =
+            toggle.dataset.target;
+
+        const passwordInput =
+            document.getElementById(targetId);
+
+        if (!passwordInput) {
+            return;
+        }
+
+        const isVisible =
+            passwordInput.type === "text";
+
+        passwordInput.type =
+            isVisible ? "password" : "text";
+
+        toggle.setAttribute(
+            "aria-label",
+            isVisible
+                ? "Show password"
+                : "Hide password"
+        );
+
+    });
 
 });

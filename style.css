@@ -2781,3 +2781,14 @@ html {
     font-size: 0.88rem;
     line-height: 1.5;
 }
+
+/* Focused authentication layout */
+
+.login-layout {
+    grid-template-columns: minmax(0, 520px);
+    justify-content: center;
+}
+
+.login-card {
+    width: 100%;
+}
