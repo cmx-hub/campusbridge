@@ -2938,3 +2938,31 @@ html {
         margin-top: 12px;
     }
 }
+
+/* CampusBridge dashboard logo */
+.dashboard-sidebar .dashboard-brand-logo {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* Refined dashboard navigation icons */
+.dashboard-sidebar .dashboard-menu-icon svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.dashboard-sidebar .dashboard-menu-link:hover .dashboard-menu-icon,
+.dashboard-sidebar .dashboard-menu-link.active .dashboard-menu-icon {
+    transform: translateX(1px);
+}
+
+.dashboard-sidebar .dashboard-menu-icon {
+    transition: color 0.15s ease, transform 0.15s ease;
+}
