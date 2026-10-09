@@ -191,6 +191,36 @@
                     <form id="register-form" class="login-form" style="display: none;">
 
                         <div class="form-group">
+                            <label for="register-account-type">Account type</label>
+                            <select id="register-account-type" name="account_type" required>
+                                <option value="student" selected>Student</option>
+                                <option value="organization">Organization</option>
+                                <option value="institution">Institution</option>
+                            </select>
+                        </div>
+
+                        <div id="register-entity-fields" style="display:none;">
+                            <div class="form-group">
+                                <label id="register-entity-name-label" for="register-entity-name">Organization name</label>
+                                <input type="text" id="register-entity-name" name="organization_name"
+                                    placeholder="Registered organization or institution name">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-website">Website (optional)</label>
+                                <input type="url" id="register-website" name="website"
+                                    placeholder="https://example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-description">Description (optional)</label>
+                                <textarea id="register-description" name="description"
+                                    placeholder="Briefly describe your organization or institution" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div id="register-student-fields">
+
+
+                        <div class="form-group">
 
                             <label for="register-name">
                                 Full name
@@ -255,6 +285,7 @@
 
                         </div>
 
+                        <div id="register-student-fields">
                         <div class="form-group">
                             <label for="register-institution">Institution</label>
                             <input
@@ -309,6 +340,7 @@
                                 placeholder="e.g. Cybersecurity, AI, Entrepreneurship"
                                 required
                             >
+                        </div>
                         </div>
 
                         <div class="form-group" style="margin: 18px 0;">

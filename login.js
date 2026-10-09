@@ -257,6 +257,34 @@ loginForm.addEventListener("submit", async (event) => {
 
 });
 
+const registrationAccountType = document.getElementById("register-account-type");
+const studentRegistrationFields = document.getElementById("register-student-fields");
+const entityRegistrationFields = document.getElementById("register-entity-fields");
+const entityNameLabel = document.getElementById("register-entity-name-label");
+const entityNameInput = document.getElementById("register-entity-name");
+
+function updateRegistrationFields() {
+    const isStudent = registrationAccountType.value === "student";
+    const isOrganization = registrationAccountType.value === "organization";
+
+    studentRegistrationFields.style.display = isStudent ? "" : "none";
+    entityRegistrationFields.style.display = isStudent ? "none" : "";
+
+    studentRegistrationFields.querySelectorAll("input").forEach((field) => {
+        field.required = isStudent;
+    });
+
+    entityNameInput.required = !isStudent;
+    entityNameLabel.textContent = isOrganization ? "Organization name" : "Institution name";
+    entityNameInput.placeholder = isOrganization
+        ? "Your organization's name"
+        : "Your institution's name";
+    entityNameInput.name = isOrganization ? "organization_name" : "institution_name";
+}
+
+registrationAccountType.addEventListener("change", updateRegistrationFields);
+updateRegistrationFields();
+
 registerForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
@@ -277,6 +305,18 @@ registerForm.addEventListener("submit", async (event) => {
 
     const password =
         document.getElementById("register-password").value;
+
+    const accountType =
+        document.getElementById("register-account-type").value;
+
+    const entityName =
+        document.getElementById("register-entity-name").value.trim();
+
+    const website =
+        document.getElementById("register-website").value.trim();
+
+    const description =
+        document.getElementById("register-description").value.trim();
 
     const institution =
         document.getElementById("register-institution").value.trim();
@@ -309,11 +349,22 @@ registerForm.addEventListener("submit", async (event) => {
                     name,
                     email,
                     password,
-                    institution,
-                    field_of_study: fieldOfStudy,
-                    level,
-                    skills,
-                    interests
+                    account_type: accountType,
+                    ...(accountType === "student" ? {
+                        institution,
+                        field_of_study: fieldOfStudy,
+                        level,
+                        skills,
+                        interests
+                    } : accountType === "organization" ? {
+                        organization_name: entityName,
+                        website,
+                        description
+                    } : {
+                        institution_name: entityName,
+                        website,
+                        description
+                    })
                 })
             }
         );
