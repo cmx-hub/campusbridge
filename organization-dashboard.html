@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organization Dashboard | CampusBridge</title>
+<style>
+:root{--navy:#102a43;--blue:#1769aa;--pale:#f3f7fb;--muted:#61758a;--line:#e2eaf2;--green:#16794b}
+*{box-sizing:border-box}body{margin:0;background:var(--pale);color:var(--navy);font:15px/1.5 Arial,sans-serif}
+.layout{min-height:100vh;display:flex}.sidebar{width:235px;background:white;border-right:1px solid var(--line);padding:26px 18px;flex-shrink:0}
+.brand{font-weight:800;font-size:21px;color:var(--navy);margin:0 0 5px}.tagline{color:var(--muted);font-size:12px;margin-bottom:32px}
+.nav-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:20px 10px 8px}
+.nav{display:block;padding:11px 12px;margin:4px 0;border-radius:9px;color:#344e65;text-decoration:none}
+.nav.active,.nav:hover{background:#eaf3fc;color:var(--blue);font-weight:700}
+.main{flex:1;min-width:0;padding:32px;max-width:1400px;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:25px}
+h1{font-size:27px;margin:0 0 4px}.muted{color:var(--muted)}h2{font-size:18px;margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:24px}
+.card{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+.metric{font-size:28px;font-weight:800;margin-top:8px}.metric-label{font-size:13px;color:var(--muted)}
+.columns{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:20px;align-items:start}
+label{display:block;font-size:13px;font-weight:700;margin:13px 0 6px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid #ccd8e4;border-radius:8px;background:#fff;font:inherit;color:var(--navy)}
+textarea{min-height:100px;resize:vertical}.btn{border:0;border-radius:8px;background:var(--blue);color:white;padding:11px 16px;font-weight:700;cursor:pointer}
+.btn:disabled{opacity:.55;cursor:wait}.btn-light{background:#eaf3fc;color:var(--blue)}
+.notice{padding:11px 13px;border-radius:9px;background:#f0f5fa;color:#344e65;margin:12px 0;overflow-wrap:anywhere}
+.notice.error{background:#fff0ef;color:#a52822}.notice.success{background:#eaf8f0;color:var(--green)}
+.list{display:grid;gap:12px}.submission{border:1px solid var(--line);border-radius:10px;padding:14px}
+.submission h3{font-size:16px;margin:0 0 6px;overflow-wrap:anywhere}.submission p{margin:5px 0;color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.pill{display:inline-block;border-radius:20px;padding:4px 9px;background:#edf2f7;font-size:11px;font-weight:700;text-transform:capitalize}
+.pill.approved{background:#e4f6eb;color:#16794b}.pill.rejected{background:#fff0ef;color:#a52822}.pill.pending{background:#fff5db;color:#8a5a00}
+a{color:var(--blue)}.empty{padding:18px;border:1px dashed #cbd7e3;border-radius:10px;color:var(--muted)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.columns{grid-template-columns:1fr}}
+@media(max-width:600px){.layout{display:block}.sidebar{width:100%;padding:18px;border-right:0;border-bottom:1px solid var(--line)}.tagline{margin-bottom:12px}.nav-label{margin-top:10px}.main{padding:20px 14px}.grid{gap:9px}.card{padding:14px}.metric{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <p class="brand">CampusBridge</p>
+  <p class="tagline">Connecting Students to Opportunities</p>
+  <div class="nav-label">Workspace</div>
+  <a class="nav active" href="#overview">▦ &nbsp; Overview</a>
+  <a class="nav" href="#submit">＋ &nbsp; Submit opportunity</a>
+  <a class="nav" href="#submissions">▤ &nbsp; My submissions</a>
+  <div class="nav-label">Platform</div>
+  <a class="nav" href="index.html">⌂ &nbsp; Public website</a>
+  <a class="nav" href="index.html#trust-and-safety">✓ &nbsp; Trust &amp; Safety</a>
+  <a class="nav" href="login.html" id="logout">↪ &nbsp; Sign in</a>
+</aside>
+<main class="main">
+  <header class="top">
+    <div><h1>Organization dashboard</h1><div class="muted" id="org-name">Loading organization profile…</div></div>
+    <span class="pill pending" id="verification-status">Verification pending</span>
+  </header>
+  <div id="message" class="notice" role="status" hidden></div>
+  <section id="overview">
+    <div class="grid">
+      <div class="card"><div class="metric-label">All submissions</div><div class="metric" id="count-all">—</div></div>
+      <div class="card"><div class="metric-label">Pending review</div><div class="metric" id="count-pending">—</div></div>
+      <div class="card"><div class="metric-label">Approved</div><div class="metric" id="count-approved">—</div></div>
+      <div class="card"><div class="metric-label">Rejected</div><div class="metric" id="count-rejected">—</div></div>
+    </div>
+  </section>
+  <div class="columns">
+    <section class="card" id="submit">
+      <h2>Submit an opportunity</h2>
+      <p class="muted">Submissions remain pending until reviewed. Only approved opportunities appear in the public listings.</p>
+      <form id="opportunity-form">
+        <label for="title">Opportunity title *</label><input id="title" name="title" required maxlength="200">
+        <label for="category">Category *</label>
+        <select id="category" name="category" required>
+          <option value="">Select a category</option><option>Scholarship</option><option>Internship</option><option>Part-time job</option><option>Competition</option><option>Training</option><option>Fellowship</option><option>Other</option>
+        </select>
+        <label for="description">Description *</label><textarea id="description" name="description" required maxlength="10000"></textarea>
+        <label for="source_url">Official source URL *</label><input id="source_url" name="source_url" type="url" placeholder="https://example.org/opportunity" required>
+        <label for="location">Location</label><input id="location" name="location" placeholder="e.g. Cameroon or Remote">
+        <label for="deadline">Application deadline</label><input id="deadline" name="deadline" type="date">
+        <button class="btn" type="submit" id="submit-button" style="margin-top:18px">Submit for review</button>
+      </form>
+    </section>
+    <section class="card" id="submissions">
+      <h2>My submissions</h2>
+      <p class="muted">Review status is shown for each opportunity submitted by your account.</p>
+      <div id="submission-list" class="list"><div class="empty">Loading your submissions…</div></div>
+      <button class="btn btn-light" id="refresh" type="button" style="margin-top:15px">Refresh submissions</button>
+    </section>
+  </div>
+</main>
+</div>
+<script src="organization-dashboard.js"></script>
+</body>
+</html>

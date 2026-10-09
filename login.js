@@ -238,7 +238,7 @@ loginForm.addEventListener("submit", async (event) => {
 
         if (selectedRole !== "student") {
             loginMessage.textContent =
-                "Your account type is correct, but the organization and institution dashboards are not available yet.";
+                (data.user.role === "organization" ? (window.location.href = "organization-dashboard.html", "Opening organization dashboard…") : "Your institution dashboard is not available yet.");
             return;
         }
 
