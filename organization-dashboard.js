@@ -5,24 +5,34 @@ const $ = id => document.getElementById(id);
 let token = "";
 
 function findToken() {
-  const likely = ["token", "campusbridge_token", "authToken", "access_token", "jwt"];
-  for (const key of likely) {
-    const value = localStorage.getItem(key);
-    if (value && value.split(".").length === 3) return value;
-  }
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    const value = key ? localStorage.getItem(key) : "";
-    if (value && value.split(".").length === 3) return value;
-    if (value) {
+  const stores = [localStorage, sessionStorage];
+  const likely = ["token", "campusbridge_token", "campusbridgeToken",
+                  "authToken", "access_token", "jwt"];
+
+  for (const store of stores) {
+    for (const key of likely) {
+      const value = store.getItem(key);
+      if (value && value.split(".").length === 3) return value;
+    }
+
+    for (let i = 0; i < store.length; i++) {
+      const key = store.key(i);
+      const value = key ? store.getItem(key) : "";
+      if (!value) continue;
+
+      if (value.split(".").length === 3) return value;
+
       try {
         const parsed = JSON.parse(value);
         for (const field of ["token", "access_token", "authToken"]) {
-          if (parsed[field] && parsed[field].split(".").length === 3) return parsed[field];
+          if (parsed[field] && parsed[field].split(".").length === 3) {
+            return parsed[field];
+          }
         }
       } catch (_) {}
     }
   }
+
   return "";
 }
 
