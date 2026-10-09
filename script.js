@@ -167,6 +167,11 @@ document.addEventListener("DOMContentLoaded", () => {
         sourceUrl
     ) {
 
+        // Normalize known organization names for backend verification.
+        if (sourceName && /^MINESUP\b/i.test(sourceName.trim())) {
+            sourceName = "MINESUP";
+        }
+
         // Remove an existing panel first
         const existingPanel =
             document.querySelector(".verification-modal");
