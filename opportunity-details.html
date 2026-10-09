@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const metaItems = [
         location,
         level,
-        date
+        date ? `Listing period: ${date.replace(/^📅\s*/, "")}` : null
     ].filter(Boolean);
 
     meta.innerHTML = metaItems
