@@ -170,6 +170,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Normalize known organization names for backend verification.
         if (sourceName && /^MINESUP\b/i.test(sourceName.trim())) {
             sourceName = "MINESUP";
+        } else if (sourceName && /^OMDES\s*\//i.test(sourceName.trim())) {
+            sourceName = "OMDES";
         }
 
         // Remove an existing panel first
