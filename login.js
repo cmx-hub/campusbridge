@@ -104,14 +104,9 @@ forgotPasswordForm.addEventListener("submit", async (event) => {
         document.getElementById("password-reset-fields").style.display =
             "block";
 
-        if (result.development_code) {
-            message.textContent =
-                `Recovery code: ${result.development_code} (expires in ${result.expires_in_minutes} minutes)`;
-        } else {
-            message.textContent =
-                result.message ||
-                "If an account exists for this email, a recovery code will be sent.";
-        }
+        message.textContent =
+            result.message ||
+            "If an account exists for this email, a recovery code will be sent.";
     } catch (error) {
         console.error("Password reset request error:", error);
         message.textContent =
