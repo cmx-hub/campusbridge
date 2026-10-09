@@ -442,12 +442,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const metaItems = [
         location,
         level,
-        date ? `Listing period: ${date.replace(/^📅\s*/, "")}` : null
+        date ? `Listing period: ${date.replace(/^📅\s*/, "")}` : null,
+        "Last checked: Not recorded"
     ].filter(Boolean);
 
-    meta.innerHTML = metaItems
-        .map(item => `<span>${item}</span>`)
-        .join("");
+    meta.innerHTML = "";
+    metaItems.forEach(item => {
+        const span = document.createElement("span");
+        span.textContent = item;
+        meta.appendChild(span);
+    });
 
     const sourceButton =
         document.getElementById("detail-source-button");
