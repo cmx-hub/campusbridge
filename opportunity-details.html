@@ -178,6 +178,11 @@
 
                     </div>
 
+                    <p class="verification-last-checked">
+                        Last checked:
+                        <strong id="verification-last-checked">Not checked yet</strong>
+                    </p>
+
                     <div class="verification-findings">
                         <strong>Why this result?</strong>
                         <p id="verification-findings-text">
@@ -269,6 +274,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const findingsText =
             document.getElementById("verification-findings-text");
 
+        const lastChecked =
+            document.getElementById("verification-last-checked");
+
         if (riskLevel) {
             riskLevel.textContent = "Checking source...";
         }
@@ -313,6 +321,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             })
             .then(result => {
+
+                if (lastChecked) {
+                    lastChecked.textContent =
+                        new Date().toLocaleString();
+                }
 
                 const level =
                     String(
