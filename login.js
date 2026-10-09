@@ -236,14 +236,15 @@ loginForm.addEventListener("submit", async (event) => {
             return;
         }
 
+        localStorage.setItem("campusbridge_token", data.token);
+        localStorage.setItem("campusbridge_user", JSON.stringify(data.user));
+
         if (selectedRole !== "student") {
             loginMessage.textContent =
                 (data.user.role === "organization" ? (window.location.href = "organization-dashboard.html", "Opening organization dashboard…") : "Your institution dashboard is not available yet.");
             return;
         }
 
-        localStorage.setItem("campusbridge_token", data.token);
-        localStorage.setItem("campusbridge_user", JSON.stringify(data.user));
         window.location.href = "student-dashboard.html";
 
     } catch (error) {
