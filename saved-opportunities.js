@@ -39,6 +39,7 @@
 
     function showButtonState(button, isSaved) {
         button.textContent = isSaved ? "✓ Saved — Remove" : "☆ Save Opportunity";
+        button.classList.toggle("is-saved", isSaved);
         button.setAttribute("aria-pressed", String(isSaved));
     }
 

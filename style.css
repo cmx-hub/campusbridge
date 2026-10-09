@@ -3690,3 +3690,64 @@ main,
     text-indent: 0;
     overflow-wrap: anywhere;
 }
+
+/* Saved opportunity actions */
+.listing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+}
+
+.save-opportunity-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 40px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.save-opportunity-button:hover {
+    background: var(--light-blue);
+    border-color: var(--teal);
+    transform: translateY(-1px);
+}
+
+.save-opportunity-button.is-saved {
+    color: #166534;
+    background: #f0fdf4;
+    border-color: #86efac;
+}
+
+.save-opportunity-button.is-saved:hover {
+    background: #dcfce7;
+    border-color: #4ade80;
+}
+
+.save-opportunity-button:disabled {
+    opacity: .65;
+    cursor: wait;
+    transform: none;
+}
+
+@media (max-width: 650px) {
+    .listing-actions {
+        width: 100%;
+    }
+
+    .listing-actions .listing-button,
+    .listing-actions .verify-button,
+    .listing-actions .save-opportunity-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
