@@ -89,6 +89,7 @@ async function loadApplications() {
         }
 
         document.getElementById("application-count").textContent = data.count;
+        document.getElementById("dashboard-application-summary").textContent = data.count;
 
         if (data.applications.length === 0) {
             list.innerHTML = "<p>No applications submitted yet.</p>";
