@@ -285,7 +285,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         url: sourceUrl,
                         organization: source && /^MINESUP\b/i.test(source.trim())
                             ? "MINESUP"
-                            : source || null
+                            : source && /^OMDES\s*\//i.test(source.trim())
+                                ? "OMDES"
+                                : source || null
                     })
                 }
             )
