@@ -45,6 +45,15 @@
                     <form id="login-form" class="login-form">
 
                         <div class="form-group">
+                            <label for="account-type">Sign in as</label>
+                            <select id="account-type" name="account_type" required>
+                                <option value="student" selected>Student</option>
+                                <option value="organization">Organization</option>
+                                <option value="institution">Institution</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
 
                             <label for="email">
                                 Email address

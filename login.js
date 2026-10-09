@@ -227,18 +227,24 @@ loginForm.addEventListener("submit", async (event) => {
             return;
         }
 
-        localStorage.setItem(
-            "campusbridge_token",
-            data.token
-        );
+        const selectedRole =
+            document.getElementById("account-type").value;
 
-        localStorage.setItem(
-            "campusbridge_user",
-            JSON.stringify(data.user)
-        );
+        if (!data.user || data.user.role !== selectedRole) {
+            loginMessage.textContent =
+                "These credentials do not belong to the selected account type. Please choose the correct type.";
+            return;
+        }
 
-        window.location.href =
-            "student-dashboard.html";
+        if (selectedRole !== "student") {
+            loginMessage.textContent =
+                "Your account type is correct, but the organization and institution dashboards are not available yet.";
+            return;
+        }
+
+        localStorage.setItem("campusbridge_token", data.token);
+        localStorage.setItem("campusbridge_user", JSON.stringify(data.user));
+        window.location.href = "student-dashboard.html";
 
     } catch (error) {
 
