@@ -239,6 +239,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const source = params.get("source");
     const sourceUrl = params.get("sourceUrl");
     const verification = params.get("verification");
+    const opportunityStatus = params.get("status") || "Not specified";
+
+    const statusElement = document.getElementById("detail-status");
+    statusElement.textContent = opportunityStatus;
+    statusElement.className =
+        opportunityStatus === "Closed" ? "status-closed" : "verified";
 
     if (verification === "1") {
 

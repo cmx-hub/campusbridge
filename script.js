@@ -150,8 +150,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     ? "&"
                     : "?";
 
+            const status = card.querySelector(".status-closed")
+                ? "Closed"
+                : card.querySelector(".status-open")
+                    ? "Open"
+                    : "Not specified";
+
+            const statusSeparator = detailsUrl.includes("?") ? "&" : "?";
+
             window.location.href =
-                `${detailsUrl}${separator}verification=1`;
+                `${detailsUrl}${statusSeparator}status=${encodeURIComponent(status)}&verification=1`;
 
         });
     });
