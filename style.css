@@ -3663,3 +3663,30 @@ main,
         line-height: 1.5;
     }
 }
+
+/* Prevent opportunity details text from clipping on mobile */
+.opportunity-details-page,
+.opportunity-details-card,
+.opportunity-details-description,
+.opportunity-details-section,
+.opportunity-details-meta {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.opportunity-details-card {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.opportunity-details-meta > span {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    margin-left: 0;
+    text-indent: 0;
+    overflow-wrap: anywhere;
+}
