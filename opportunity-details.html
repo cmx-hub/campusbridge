@@ -283,7 +283,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     },
                     body: JSON.stringify({
                         url: sourceUrl,
-                        organization: source || null
+                        organization: source && /^MINESUP\b/i.test(source.trim())
+                            ? "MINESUP"
+                            : source || null
                     })
                 }
             )
