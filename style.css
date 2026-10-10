@@ -4358,3 +4358,44 @@ main,
         max-height: 220px;
     }
 }
+
+
+/* CampusBridge opportunity card imagery */
+.cb-opportunity-thumb {
+    width: 100%;
+    height: 116px;
+    margin: 0 0 16px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f0f4f8;
+}
+.cb-opportunity-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .25s ease;
+}
+.listing-card:hover .cb-opportunity-thumb img {
+    transform: scale(1.035);
+}
+.cb-opportunities-hero-visual {
+    max-width: 620px;
+    margin: 22px auto 28px;
+}
+.cb-opportunities-hero-visual img {
+    display: block;
+    width: 100%;
+    max-height: 230px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+@media (max-width: 700px) {
+    .cb-opportunity-thumb {
+        height: 100px;
+    }
+    .cb-opportunities-hero-visual img {
+        max-height: 180px;
+    }
+}
