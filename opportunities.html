@@ -892,6 +892,42 @@
 </footer>
 
 
+<script>
+/* Prefer each opportunity provider's website icon; keep the existing photo as fallback. */
+document.querySelectorAll(".listing-card").forEach(function (card) {
+    const image = card.querySelector(".cb-opportunity-thumb img");
+    if (!image) return;
+
+    const fallback = image.getAttribute("src");
+    const details = card.getAttribute("data-details-url") || "";
+    let source = "";
+
+    try {
+        const parsedDetails = new URL(details, window.location.href);
+        source = parsedDetails.searchParams.get("sourceUrl") || "";
+    } catch (_) {}
+
+    if (!source) {
+        const verifyButton = card.querySelector("[data-source]");
+        source = verifyButton ? verifyButton.getAttribute("data-source") || "" : "";
+    }
+
+    try {
+        const host = new URL(source).hostname;
+        if (!host) return;
+        image.alt = "Website icon for " + host;
+        image.classList.add("cb-provider-icon");
+        image.onerror = function () {
+            image.onerror = null;
+            image.classList.remove("cb-provider-icon");
+            image.src = fallback;
+        };
+        image.src = "https://www.google.com/s2/favicons?domain=" +
+            encodeURIComponent(host) + "&sz=128";
+    } catch (_) {}
+});
+</script>
+
 <script src="saved-opportunities.js"></script>
 <script src="script.js"></script>
 

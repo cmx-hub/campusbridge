@@ -4622,3 +4622,166 @@ main,
     .cb-trust-signals { grid-template-columns: 1fr; }
     .cb-product-visual { padding: 14px; }
 }
+
+/* CAMPUSBRIDGE VISUAL REFRESH OCT 2026 */
+.login-page {
+    position: relative;
+    isolation: isolate;
+    background:
+        radial-gradient(ellipse at 12% 12%, rgba(20,163,154,.14), transparent 38%),
+        radial-gradient(ellipse at 90% 82%, rgba(46,105,190,.12), transparent 34%),
+        linear-gradient(145deg, #f5f9ff 0%, #eef7f8 55%, #f8faff 100%);
+    padding-top: clamp(36px, 6vw, 72px);
+    padding-bottom: clamp(40px, 6vw, 76px);
+}
+.login-page .login-layout {
+    max-width: 560px;
+}
+.login-page .login-card {
+    border: 1px solid rgba(210,224,238,.9);
+    border-radius: 24px;
+    background: rgba(255,255,255,.97);
+    box-shadow: 0 24px 70px rgba(20,48,80,.12);
+    padding: clamp(24px, 5vw, 40px);
+}
+.login-page .login-card-header h2 {
+    color: #102a43;
+    font-size: clamp(1.65rem, 4vw, 2rem);
+    letter-spacing: -.04em;
+}
+.login-page .login-card-header p {
+    color: #60758a;
+    line-height: 1.65;
+}
+.login-page .login-form .form-group label,
+.login-page .register-form .form-group label {
+    color: #243f58;
+    font-weight: 650;
+    margin-bottom: 7px;
+}
+.login-page .login-form input,
+.login-page .register-form input,
+.login-page .login-form select,
+.login-page .register-form select,
+.login-page .login-form textarea,
+.login-page .register-form textarea {
+    min-height: 48px;
+    border: 1px solid #d7e2ed;
+    border-radius: 12px;
+    background: #fbfdff;
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.login-page .login-form input:focus,
+.login-page .register-form input:focus,
+.login-page .login-form select:focus,
+.login-page .register-form select:focus,
+.login-page .login-form textarea:focus,
+.login-page .register-form textarea:focus {
+    outline: none;
+    border-color: #159b95;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(21,155,149,.12);
+}
+.login-page .login-form button.btn,
+.login-page .register-form button.btn {
+    min-height: 50px;
+    border-radius: 12px;
+    font-weight: 750;
+    box-shadow: 0 8px 18px rgba(20,110,155,.14);
+}
+.login-page .password-toggle {
+    border-radius: 9px;
+}
+.login-page .auth-switch {
+    border-top: 1px solid #edf2f7;
+    color: #60758a;
+}
+.cb-audience-image {
+    display: block;
+    width: 100%;
+    height: 170px;
+    margin: 0 0 18px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.cb-business-image-break {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(20px, 4vw, 42px);
+    margin: 30px 0;
+    padding: clamp(16px, 3vw, 26px);
+    overflow: hidden;
+    border: 1px solid #dfe8f0;
+    border-radius: 20px;
+    background: linear-gradient(120deg, #f0f7fc, #f4fbf8);
+}
+.cb-business-image-break img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+.cb-business-image-break span {
+    color: #137f83;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+.cb-business-image-break h3 {
+    margin: 10px 0;
+    color: #102a43;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.2;
+}
+.cb-business-image-break p {
+    margin: 0;
+    color: #52677c;
+    line-height: 1.7;
+}
+.cb-product-photo {
+    width: min(100%, 900px);
+    margin: 28px auto 0;
+}
+.cb-product-photo img {
+    display: block;
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 18px 44px rgba(16,42,67,.12);
+}
+.cb-product-photo figcaption {
+    margin-top: 10px;
+    color: #60758a;
+    font-size: 13px;
+    text-align: center;
+}
+.cb-opportunity-thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.cb-opportunity-thumb img.cb-provider-icon {
+    width: 76px;
+    height: 76px;
+    padding: 10px;
+    object-fit: contain;
+    border: 1px solid #e5edf5;
+    border-radius: 16px;
+    background: #fff;
+}
+@media (max-width: 680px) {
+    .cb-business-image-break {
+        grid-template-columns: 1fr;
+    }
+    .cb-business-image-break img {
+        height: 210px;
+    }
+    .cb-audience-image {
+        height: 150px;
+    }
+}
