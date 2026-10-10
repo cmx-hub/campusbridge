@@ -4256,42 +4256,38 @@ main,
 }
 
 
-/* CampusBridge homepage image enhancements */
+
+/* CampusBridge: calm, spacious homepage */
 .cb-home-category {
     overflow: hidden;
 }
-
 .cb-home-category-image {
-    display: block;
+    display: none !important;
+}
+.cb-home-founder-photo {
     width: 100%;
-    height: 140px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 12px;
-    margin-bottom: 18px;
-    transition: transform 0.25s ease;
+    max-width: 440px;
+    margin: 1.5rem auto;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #f3f6f8;
 }
-
-.cb-home-category:hover .cb-home-category-image {
-    transform: scale(1.025);
-}
-
 .cb-home-founder-photo img {
     display: block;
     width: 100%;
-    height: 100%;
-    min-height: 320px;
+    max-height: 430px;
     object-fit: cover;
-    object-position: center 30%;
+    object-position: center 28%;
+    border-radius: 18px;
 }
-
-@media (max-width: 700px) {
-    .cb-home-category-image {
-        height: 160px;
+@media (min-width: 900px) {
+    .cb-home-founder-photo {
+        margin-left: 0;
+        margin-right: 0;
     }
-
-    .cb-home-founder-photo img {
-        min-height: 260px;
-        max-height: 380px;
+}
+@media (max-width: 700px) {
+    .cb-home-founder-photo {
+        max-width: 100%;
     }
 }
