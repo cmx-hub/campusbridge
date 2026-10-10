@@ -4291,3 +4291,70 @@ main,
         max-width: 100%;
     }
 }
+
+
+/* CampusBridge visual polish */
+.cb-home-founder {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(24px, 5vw, 64px);
+    padding-block: clamp(48px, 7vw, 88px);
+}
+.cb-home-founder-photo {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f2f5f8;
+    box-shadow: 0 14px 36px rgba(20, 40, 70, 0.10);
+}
+.cb-home-founder-photo img,
+.cb-about-founder-portrait img {
+    display: block;
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 20px;
+}
+.cb-about-founder-portrait {
+    width: min(100%, 390px);
+    margin: 28px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f2f5f8;
+    box-shadow: 0 14px 36px rgba(20, 40, 70, 0.10);
+}
+.cb-page-feature-visual {
+    width: min(100%, 720px);
+    margin: 28px auto 36px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+.cb-page-feature-visual img {
+    display: block;
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 18px;
+}
+@media (max-width: 760px) {
+    .cb-home-founder {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+    .cb-home-founder-photo,
+    .cb-about-founder-portrait {
+        width: min(100%, 360px);
+    }
+    .cb-home-founder-photo img,
+    .cb-about-founder-portrait img {
+        max-height: 380px;
+    }
+    .cb-page-feature-visual img {
+        max-height: 220px;
+    }
+}
